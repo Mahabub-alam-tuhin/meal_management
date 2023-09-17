@@ -29,24 +29,24 @@
                     <thead>
                     <tbody>
                     @php $i=1 @endphp
-                    @foreach($saveusers as $spot)
+                    @foreach($saveusers as $user)
                         <tr>
                             <td>{{$i++}}</td>
-                            <td>{{$spot->name}}</td> 
-                            <td>{{$spot->user_role}}</td>                        
-                            <td>{{$spot->email}}</td> 
-                            <td>{{$spot->mobile}}</td>
-                            <td>{{$spot->department}}</td>
-                            <td>{{$spot->address}}</td>
-                            <td>{{$spot->image}}</td>
-                            <td>{{$spot->password}}</td>
+                            <td>{{$user->name}}</td> 
+                            <td>{{$user->user_role}}</td>                        
+                            <td>{{$user->email}}</td> 
+                            <td>{{$user->mobile}}</td>
+                            <td>{{$user->department}}</td>
+                            <td>{{$user->address}}</td>
+                            <td>{{$user->image}}</td>
+                            <td>{{$user->password}}</td>
                             
 
 
 
                             <td>
-                                <a href="#" class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
+                                <a href="{{route('admin.user_management.edit',$user->id)}}" class="btn btn-primary">Edit</a>
+                                <a href="{{route('admin.user_management.delete',$user->id)}}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     @endforeach

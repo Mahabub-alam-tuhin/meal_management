@@ -25,5 +25,41 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserRoleSeeder::class
         ]);
+
+        $this->call([
+            AccountlogSeeder::class
+        ]);
+
+        $this->call([
+            DailyExpenseSeeder::class
+        ]);
+
+        $this->call([
+            MealMenusesSeeder::class
+        ]);
+
+        $this->call([
+            MonthlyMealRateSeeder::class
+        ]);
+
+        $this->call([
+            UserMealSeeder::class
+        ]);
+
+        $this->call([
+            UserPaymentSeeder::class
+        ]);
+
+        $this->call([
+            settingSeeder::class
+        ]);
+        
+        $this->call([
+            UserRoleSeeder::class
+        ]);
+
+        $this->call([
+            UserSeeder::class
+        ]);
     }
 }

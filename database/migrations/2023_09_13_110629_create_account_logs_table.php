@@ -17,7 +17,7 @@ return new class extends Migration
             $table->tinyInteger('is_expense'); // TINYINT data type for 'is_expense'
             $table->tinyInteger('is_income'); // TINYINT data type for 'is_income'
             $table->date('income_date'); // DATE data type for 'income_date'
-            $table->bigInteger('category'); // BIGINT data type for 'category'
+            // $table->bigInteger('category'); // BIGINT data type for 'category'
             $table->tinyInteger('status')->default(1); // TINYINT data type for 'status' with default value 1
             $table->timestamps(); // Created at and updated at timestamps
             
