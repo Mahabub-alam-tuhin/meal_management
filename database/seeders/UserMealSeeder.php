@@ -19,19 +19,19 @@ class UserMealSeeder extends Seeder
         UserMeals::create([
             'users_id' => '1',
             'quantity' =>'2' ,
-            'date' => '2023-10-16',
+            'date' => '2023-09-17',
             
         ]);
         UserMeals::create([
             'users_id' => '2',
             'quantity' =>'1' ,
-            'date' => '2023-10-16',
+            'date' => '2023-09-18',
             
         ]);
         UserMeals::create([
             'users_id' => '3',
             'quantity' =>'1' ,
-            'date' => '2023-10-16',
+            'date' => '2023-09-19',
             
         ]);
     }

@@ -19,23 +19,23 @@ class MealMenusesSeeder extends Seeder
       
 
         MealMenus::create([
-            'meal_date' => Carbon::createFromFormat('n-d-Y', '10-16-2023')->format('Y-m-d'),
+            'meal_date' => Carbon::createFromFormat('n-d-Y', '9-17-2023')->format('Y-m-d'),
             'description' =>'erveryone should come in time' ,
-            'receipy' => 'rice,fish,vegetable',
+            'receipy' => 'chicken',
         
         ]);
 
         MealMenus::create([
-            'meal_date' => Carbon::createFromFormat('n-d-Y', '10-17-2023')->format('Y-m-d'),
+            'meal_date' => Carbon::createFromFormat('n-d-Y', '9-18-2023')->format('Y-m-d'),
             'description' =>'erveryone should come in time' ,
-            'receipy' => 'rice,fish,chicken',
+            'receipy' => 'fish',
         
         ]);
 
         MealMenus::create([
-            'meal_date' => Carbon::createFromFormat('n-d-Y', '10-18-2023')->format('Y-m-d'),
+            'meal_date' => Carbon::createFromFormat('n-d-Y', '9-19-2023')->format('Y-m-d'),
             'description' =>'erveryone should come in time' ,
-            'receipy' => 'rice,fish,dal',
+            'receipy' => 'egg',
         
         ]);
     }

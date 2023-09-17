@@ -20,7 +20,7 @@ class AccountlogSeeder extends Seeder
             'amount' => 800,
             'is_expense' => 1,
             'is_income' => 0, // Change to a valid integer value
-            'income_date' => Carbon::createFromFormat('n-d-Y', '10-16-2023')->format('Y-m-d'),
+            'income_date' => Carbon::createFromFormat('n-d-Y', '9-17-2023')->format('Y-m-d'),
             // 'category' => '',
         ]);
 
@@ -28,7 +28,7 @@ class AccountlogSeeder extends Seeder
             'amount' => 1500,
             'is_expense' => 1,
             'is_income' => 0, // Change to a valid integer value
-            'income_date' => Carbon::createFromFormat('n-d-Y', '10-17-2023')->format('Y-m-d'),
+            'income_date' => Carbon::createFromFormat('n-d-Y', '9-18-2023')->format('Y-m-d'),
             // 'category' => '',
         ]);
 
@@ -36,7 +36,7 @@ class AccountlogSeeder extends Seeder
             'amount' => 300,
             'is_expense' => 1,
             'is_income' => 0, // Change to a valid integer value
-            'income_date' => Carbon::createFromFormat('n-d-Y', '10-18-2023')->format('Y-m-d'),
+            'income_date' => Carbon::createFromFormat('n-d-Y', '9-19-2023')->format('Y-m-d'),
             // 'category' => '',
         ]);
         

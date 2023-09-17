@@ -21,28 +21,28 @@ class DailyExpenseSeeder extends Seeder
         daily_expense::create([
             'title' =>'chicken' ,
             'quantity' => '2',
-            'unit' => 'lunch',
+            'unit' => 'pcs',
             'price' => '400',
             'total' => '800',
-            'bajar_date' => Carbon::createFromFormat('n-d-Y', '10-16-2023')->format('Y-m-d'),
+            'bajar_date' => Carbon::createFromFormat('n-d-Y', '9-17-2023')->format('Y-m-d'),
         
         ]);
         daily_expense::create([
             'title' =>'fish' ,
             'quantity' => '3',
-            'unit' => 'dinner',
+            'unit' => 'kg',
             'price' => '500',
             'total' => '1500',
-            'bajar_date' => Carbon::createFromFormat('n-d-Y', '10-17-2023')->format('Y-m-d'),
+            'bajar_date' => Carbon::createFromFormat('n-d-Y', '9-18-2023')->format('Y-m-d'),
         
         ]);
         daily_expense::create([
             'title' =>'egg' ,
             'quantity' => '15',
-            'unit' => 'breakfast',
+            'unit' => 'pcs',
             'price' => '20',
             'total' => '300',
-            'bajar_date' => Carbon::createFromFormat('n-d-Y', '10-18-2023')->format('Y-m-d'),
+            'bajar_date' => Carbon::createFromFormat('n-d-Y', '9-19-2023')->format('Y-m-d'),
         
         ]);
     }
