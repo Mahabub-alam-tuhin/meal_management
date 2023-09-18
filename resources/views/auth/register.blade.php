@@ -25,6 +25,11 @@
             </div>
 
             <div class="mt-4">
+                <x-label for="mobile" value="{{ __('mobile') }}" />
+                <x-input id="mobile" class="block mt-1 w-full" type="text" name="mobile" :value="old('mobile')" required autocomplete="mobile" />
+            </div>
+
+            <div class="mt-4">
                 <x-label for="password" value="{{ __('Password') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>

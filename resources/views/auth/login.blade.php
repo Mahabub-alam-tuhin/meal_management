@@ -14,11 +14,17 @@
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
-
+{{-- 
             <div>
                 <x-label for="email" value="{{ __('Email') }}" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            </div> --}}
+
+            <div>
+                <x-label for="mobile" value="{{ __('mobile') }}" />
+                <x-input id="mobile" class="block mt-1 w-full" type="number" name="mobile" :value="old('mobile')" required autofocus autocomplete="mobile" />
             </div>
+           
 
             <div class="mt-4">
                 <x-label for="password" value="{{ __('Password') }}" />
