@@ -9,7 +9,7 @@ class User_managementController extends Controller
 {
     public function add_user()
     {
-        return view('admin.user_management.add_user');
+        return view ('admin.user_management.add_user');
     }
     public function store(Request $request)
     {
@@ -43,10 +43,17 @@ class User_managementController extends Controller
     }
     public function all_user()
     {
-        return view('admin.user_management.all_user', [
+        return view ('admin.user_management.all_user', [
             'saveusers' => User::all()
         ]);
     }
+
+    // public function all_users()
+    // {
+        
+    //     $saveusers=User::all();
+    //     return response()->json(["user" => $saveusers], 200);
+    // }
 
     public function edit($id)
     {

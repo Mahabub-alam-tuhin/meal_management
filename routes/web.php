@@ -23,6 +23,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     // Route::get('/dashboard', function () {
     //     return view('dashboard');
     // })->name('dashboard');
+
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard.home')->middleware('isadmin');
     Route::get('/add_user', [User_managementController::class, 'add_user'])->name('admin.user_management.add_user');
     Route::post('/store', [User_managementController::class, 'store'])->name('admin.user_management.store');

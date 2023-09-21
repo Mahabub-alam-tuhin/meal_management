@@ -1,0 +1,14 @@
+GET http://127.0.0.1:8000/api/test HTTP/1.1
+
+###
+POST http://127.0.0.1:8000/api/test HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample",
+    "name1": "sample",
+    "name2": "sample",
+    "name3": "sample",
+    "name4": "sample",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
