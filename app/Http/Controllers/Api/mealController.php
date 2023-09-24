@@ -1,29 +1,30 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\UserMeals;
 use Illuminate\Http\Request;
 
 class mealController extends Controller
 {
-    // public function add_meal(){
+     // public function add_meal(){
     //     return 'text';
     // }
 
-    public function store()
-    {
-        //  dd(request()->all());
-        $meal = new UserMeals();
-        $meal->users_id = request()->users_id;
-        $meal->quantity = request()->quantity;
-        $meal->date = request()->date;
-        $meal->save();
-        // return response()->json('message', 'Info save successfully');
-        return response()->json(['message' => 'Info save successfully'], 200);
-    }
+    // public function store()
+    // {
+    //      dd(request()->all());
+    //     $meal = new UserMeals();
+    //     $meal->users_id = request()->users_id;
+    //     $meal->quantity = request()->quantity;
+    //     $meal->date = request()->date;
+    //     $meal->save();
+    //     return response()->json('message', 'Info save successfully');
+    //     return response()->json(['message' => 'Info save successfully'], 200);
+    // }
 
-     public function show_meal()
+    public function all_meal()
     {
         
         $meal=UserMeals::all();
