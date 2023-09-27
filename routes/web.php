@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\User_managementController;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,13 @@ use App\Http\Controllers\User_managementController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::get('/', function () {
+//     // return view('welcome');
+//     $from = Carbon::parse('2023-09-26 17:35');
+//     $to = Carbon::parse('2023-09-26 17:30');
+//     dd( $from->diffInMinutes($to, false));
+// });
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
     // Route::get('/dashboard', function () {

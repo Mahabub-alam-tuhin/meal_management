@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class UserPayments extends Model
 {
     use HasFactory;
+    
 }

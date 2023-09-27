@@ -1,10 +1,14 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Api\allUserController;
 use App\Http\Controllers\Api\mealController;
 use App\Http\Controllers\Api\loginController;
 use App\Http\Controllers\Api\UsermanageController;
 use App\Http\Controllers\Api\mealRateController;
+use App\Http\Controllers\Api\dailyExpenseController;
+use App\Http\Controllers\Api\mealBookingController;
+use App\Http\Controllers\Api\userInfoController;
 use App\Http\Controllers\User_managementController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -63,12 +67,34 @@ Route::middleware('auth:api')->group(function () {
         Route::post('/update/{id}', [UsermanageController::class, 'update']);
         Route::get('/delete/{id}', [UsermanageController::class, 'delete']);
     });
-
+ 
     Route::prefix('meal_rate')->group(function () {
         Route::get('/all_meal_rate', [mealRateController::class, 'all_meal_rate']);
         Route::get('/find/{id}', [mealRateController::class, 'find']);
         Route::post('/update/{id}', [mealRateController::class, 'update']);
         Route::get('/delete/{id}', [mealRateController::class, 'delete']);
     });
+      
+    Route::prefix('daily_expense')->group(function () {
+        Route::get('/all_expense', [dailyExpenseController::class, 'all_expense']);
+        Route::get('/find/{id}', [dailyExpenseController::class, 'find']);
+        Route::post('/update/{id}', [dailyExpenseController::class, 'update']);
+        Route::get('/delete/{id}', [dailyExpenseController::class, 'delete']);
+    });
     
+    Route::prefix('user')->group(function () {
+        Route::get('/all_user', [allUserController::class, 'all_user']);
+        
+    });
+    
+    Route::prefix('info')->group(function () {
+        Route::get('/all_info', [userInfoController::class, 'all_info']);
+    });
+
+    Route::prefix('meal_booking')->group(function () {
+        Route::get('/all_meal', [mealBookingController::class, 'all_meal']);
+        Route::post('/store', [mealBookingController::class, 'store']);
+     
+    });
+
 });

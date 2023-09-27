@@ -62,4 +62,17 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+    // public function total(){
+    //     return $this->hasOne(UserPayments::class,"id",'users_id');
+    // } 
+
+    public function userpayments(){
+        return $this->hasMany(UserPayments::class,"users_id","id");
+    }
+
+    public function userMeal(){
+        return $this->hasMany(UserMeals::class,"users_id","id");
+    }
 }
