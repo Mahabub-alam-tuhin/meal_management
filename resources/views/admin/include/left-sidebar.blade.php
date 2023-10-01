@@ -26,4 +26,26 @@
         </ul>
     </li>
 
+
+
+
+    <li class="menu-item">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons ti ti-smart-home"></i>
+            <div data-i18n="Users">User Meals</div>
+            <div class="badge bg-label-primary rounded-pill ms-auto">3</div>
+        </a>
+        <ul class="menu-sub">
+            <li class="menu-item">
+                <a href="{{ route('admin.meal.all_meal') }}" class="menu-link">
+                    <div data-i18n="show user">All Meal</div>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="{{ route('admin.user_management.all_user') }}" class="menu-link">
+                    <div data-i18n="show user">All User</div>
+                </a>
+            </li>
+        </ul>
+    </li>
 </ul>
