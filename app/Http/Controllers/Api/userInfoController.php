@@ -15,10 +15,10 @@ class userInfoController extends Controller
     public function all_info()
     {
 
-        dd($_SERVER);
+        // dd($_SERVER);
         $this_month = Carbon::today();
-        $userpayment=UserPayments::whereMonth('month', $this_month)->sum('amount',);
-        $totalMeal=UserMeals::whereMonth('created_at', $this_month)->sum('quantity',);
+        $userpayment=UserPayments::whereMonth('month', $this_month)->sum('amount');
+        $totalMeal=UserMeals::whereMonth('created_at', $this_month)->sum('quantity');
         
     
         $Month_check = MonthlyMealRates::whereMonth('month', $this_month)->first();
@@ -28,7 +28,28 @@ class userInfoController extends Controller
         }
        $total_expense=$mealRate * $totalMeal;
        $total_due= $total_expense - $userpayment;
+       return view ('admin.info.all_info',compact('userpayment','totalMeal','total_due'));
 
-        return response()->json(["Total Amount" => $userpayment, "Total meal" =>$totalMeal, "Total due" =>$total_due, ], 200);
+        // return response()->json(["Total Amount" => $userpayment, "Total meal" =>$totalMeal, "Total due" =>$total_due, ], 200);
     }
+
+    // public function all_info()
+    // {
+
+    //     dd($_SERVER);
+    //     $this_month = Carbon::today();
+    //     $userpayment=UserPayments::whereMonth('month', $this_month)->sum('amount',);
+    //     $totalMeal=UserMeals::whereMonth('created_at', $this_month)->sum('quantity',);
+        
+    
+    //     $Month_check = MonthlyMealRates::whereMonth('month', $this_month)->first();
+    //     $mealRate = 0;
+    //     if ($Month_check !== null) {
+    //         $mealRate = $Month_check->meal_rate;
+    //     }
+    //    $total_expense=$mealRate * $totalMeal;
+    //    $total_due= $total_expense - $userpayment;
+
+    //     return response()->json(["Total Amount" => $userpayment, "Total meal" =>$totalMeal, "Total due" =>$total_due, ], 200);
+    // }
 }

@@ -2,7 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Api\allUserController;
+use App\Http\Controllers\Api\dailyExpenseController;
+use App\Http\Controllers\Api\mealBookingController;
 use App\Http\Controllers\Api\mealController;
+use App\Http\Controllers\Api\mealRateController;
+use App\Http\Controllers\Api\userInfoController;
 use App\Http\Controllers\User_managementController;
 use Carbon\Carbon;
 
@@ -47,4 +52,36 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::post('/update/{id}', [mealController::class, 'update'])->name('admin.meal.update');
         Route::get('/delete/{id}', [mealController::class, 'delete'])->name('admin.meal.delete');
     });
+
+    Route::prefix('meal_rate')->group(function () {
+        Route::get('/all_meal_rate', [mealRateController::class, 'all_meal_rate'])->name('admin.meal_rate.all_meal_rate');
+        Route::get('/find/{id}', [mealRateController::class, 'find'])->name('admin.meal_rate.edit');
+        Route::post('/update/{id}', [mealRateController::class, 'update'])->name('admin.meal_rate.update');
+        Route::get('/delete/{id}', [mealRateController::class, 'delete'])->name('admin.meal_rate.delete');
+    });
+
+    Route::prefix('daily_expense')->group(function () {
+        Route::get('/all_expense', [dailyExpenseController::class, 'all_expense'])->name('admin.daily_expense.all_expense');
+        Route::get('/find/{id}', [dailyExpenseController::class, 'find'])->name('admin.daily_expense.edit');
+        Route::post('/update/{id}', [dailyExpenseController::class, 'update'])->name('admin.daily_expense.update');
+        Route::get('/delete/{id}', [dailyExpenseController::class, 'delete']);
+    });
+
+    
+    Route::prefix('user')->group(function () {
+        Route::get('/all_user', [allUserController::class, 'all_user'])->name('admin.user.all_user');
+        
+    });
+
+    
+    Route::prefix('info')->group(function () {
+        Route::get('/all_info', [userInfoController::class, 'all_info'])->name('admin.info.all_info');
+    });
+
+    Route::prefix('meal_booking')->group(function () {
+        Route::get('/all_meal', [mealBookingController::class, 'all_meal'])->name('admin.meal_booking.all_meal');
+        Route::post('/store', [mealBookingController::class, 'store']);
+     
+    });
+    
 });
