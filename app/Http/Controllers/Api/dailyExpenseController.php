@@ -8,7 +8,23 @@ use Illuminate\Http\Request;
 
 class dailyExpenseController extends Controller
 {
-
+    public function add_expense(){
+        return view('admin.daily_expense.add_expense');
+    }
+    public function store(Request $request)
+    {
+        //        dd(request()->all());
+        $expense = new daily_expense();
+        $expense->title = $request->title;
+        $expense->quantity = $request->quantity;
+        $expense->unit = $request->unit;
+        $expense->price = $request->price;
+        $expense->total = $request->total;
+        $expense->bajar_date = $request->bajar_date;
+        $expense->status = $request->status;
+        $expense->save();
+        return back()->with('message', 'Info save successfully');
+    }
 
     public function all_expense()
     {

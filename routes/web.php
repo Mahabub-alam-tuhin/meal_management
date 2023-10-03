@@ -47,6 +47,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::get('/delete/{id}', [User_managementController::class, 'delete'])->name('admin.user_management.delete');
 
     Route::prefix('meal')->group(function () {
+        Route::get('/add_meal', [mealController::class, 'add_meal'])->name('admin.meal.add_meal');
+        Route::post('/store', [mealController::class, 'store'])->name('admin.meal.store');
         Route::get('/all_meal', [mealController::class, 'all_meal'])->name('admin.meal.all_meal');
         Route::get('/find/{id}', [mealController::class, 'find'])->name('admin.meal.edit');
         Route::post('/update/{id}', [mealController::class, 'update'])->name('admin.meal.update');
@@ -54,6 +56,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     });
 
     Route::prefix('meal_rate')->group(function () {
+        Route::get('/add_meal_rate', [mealRateController::class, 'add_meal_rate'])->name('admin.meal_rate.add_meal_rate');
+        Route::post('/store', [mealRateController::class, 'store'])->name('admin.meal_rate.store');
         Route::get('/all_meal_rate', [mealRateController::class, 'all_meal_rate'])->name('admin.meal_rate.all_meal_rate');
         Route::get('/find/{id}', [mealRateController::class, 'find'])->name('admin.meal_rate.edit');
         Route::post('/update/{id}', [mealRateController::class, 'update'])->name('admin.meal_rate.update');
@@ -61,6 +65,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     });
 
     Route::prefix('daily_expense')->group(function () {
+        Route::get('/add_expense', [dailyExpenseController::class, 'add_expense'])->name('admin.daily_expense.add_expense');
+        Route::post('/store', [dailyExpenseController::class, 'store'])->name('admin.daily_expense.store');
         Route::get('/all_expense', [dailyExpenseController::class, 'all_expense'])->name('admin.daily_expense.all_expense');
         Route::get('/find/{id}', [dailyExpenseController::class, 'find'])->name('admin.daily_expense.edit');
         Route::post('/update/{id}', [dailyExpenseController::class, 'update'])->name('admin.daily_expense.update');

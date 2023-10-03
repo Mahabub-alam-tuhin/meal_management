@@ -37,6 +37,11 @@
         </a>
         <ul class="menu-sub">
             <li class="menu-item">
+                <a href="{{ route('admin.meal.add_meal') }}" class="menu-link">
+                    <div data-i18n="create user">Add meal</div>
+                </a>
+            </li>
+            <li class="menu-item">
                 <a href="{{ route('admin.meal.all_meal') }}" class="menu-link">
                     <div data-i18n="show user">All Meal</div>
                 </a>
@@ -53,6 +58,11 @@
         </a>
         <ul class="menu-sub">
             <li class="menu-item">
+                <a href="{{ route('admin.meal_rate.add_meal_rate') }}" class="menu-link">
+                    <div data-i18n="create user">Add meal rate</div>
+                </a>
+            </li>
+            <li class="menu-item">
                 <a href="{{ route('admin.meal_rate.all_meal_rate') }}" class="menu-link">
                     <div data-i18n="show user">All Meal Rate</div>
                 </a>
@@ -66,10 +76,15 @@
     <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
             <i class="menu-icon tf-icons ti ti-smart-home"></i>
-            <div data-i18n="Users">All Expense</div>
+            <div data-i18n="Users">Expense</div>
             <div class="badge bg-label-primary rounded-pill ms-auto">3</div>
         </a>
         <ul class="menu-sub">
+            <li class="menu-item">
+                <a href="{{ route('admin.daily_expense.add_expense') }}" class="menu-link">
+                    <div data-i18n="show user">Add Expense</div>
+                </a>
+            </li>
             <li class="menu-item">
                 <a href="{{ route('admin.daily_expense.all_expense') }}" class="menu-link">
                     <div data-i18n="show user">All Expense</div>

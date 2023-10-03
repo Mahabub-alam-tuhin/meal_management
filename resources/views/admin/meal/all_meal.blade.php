@@ -15,6 +15,7 @@
                     <thead>
                     <tr>
                         <th>ID</th>
+                        {{-- <th>name</th> --}}
                         <th>users_id</th>
                         <th>quantity</th>
                         <th>date</th>
@@ -27,6 +28,7 @@
                     @foreach($meals as $meal)
                         <tr>
                             <td>{{$i++}}</td>
+                            {{-- <td>{{$meal->name}}</td>  --}}
                             <td>{{$meal->users_id}}</td> 
                             <td>{{$meal->quantity}}</td>                        
                             <td>{{$meal->date}}</td> 

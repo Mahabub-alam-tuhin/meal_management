@@ -8,6 +8,27 @@ use Illuminate\Http\Request;
 
 class mealRateController extends Controller
 {
+   public function add_meal_rate(){
+    return view('admin.meal_rate.add_meal_rate');
+   }
+   
+   public function store(Request $request)
+   {
+       //        dd(request()->all());
+       $meal = new MonthlyMealRates();
+       $meal->month = $request->month;
+       $meal->meal_rate = $request->meal_rate;
+       $meal->is_visible = $request->is_visible;
+       $meal->month_start_date = $request->month_start_date;
+       $meal->month_end_date = $request->month_end_date;
+       $meal->status = $request->status;
+       $meal->save();
+       return back()->with('message', 'Info save successfully');
+
+       //        return $request;
+
+   }
+
     public function all_meal_rate()
     {
         return view ('admin.meal_rate.all_meal_rate', [

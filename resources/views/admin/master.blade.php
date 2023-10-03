@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="/adminAsset/vendor/css/rtl/theme-default-dark.css"
         class="template-customizer-theme-css" />
     <link rel="stylesheet" href="/adminAsset/css/demo.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="/adminAsset/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
@@ -180,6 +181,8 @@
     <script src="/adminAsset/vendor/libs/typeahead-js/typeahead.js"></script>
 
     <script src="/adminAsset/vendor/js/menu.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
     <!-- endbuild -->
 
 
@@ -192,6 +195,12 @@
 
     @yield('scripts')
     @stack('cjs')
+    
+    <script>
+       $(document).ready(function() {
+    $('.meal_user').select2();
+});
+    </script>
 </body>
 
 </html>

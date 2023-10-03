@@ -24,6 +24,25 @@ class mealController extends Controller
     //     return response()->json(['message' => 'Info save successfully'], 200);
     // }
 
+    public function add_meal(){
+        return view('admin.meal.add_meal');
+    }
+
+    public function store(Request $request)
+    {
+        //        dd(request()->all());
+        $meal = new UserMeals();
+        $meal->users_id = $request->users_id;
+        // $meal->users_id = $request->users_id;
+        $meal->quantity = $request->quantity;
+        $meal->date = $request->date;
+        $meal->save();
+        return back()->with('message', 'Info save successfully');
+
+        //        return $request;
+
+    }
+
    
 
     public function all_meal()
@@ -57,6 +76,7 @@ class mealController extends Controller
     {
         $meal = UserMeals::find($id);
         $meal->users_id = $request->users_id;
+        // $meal->users_id = $request->users_id;
         $meal->quantity = $request->quantity;
         $meal->date = $request->date;
         $meal->update();
