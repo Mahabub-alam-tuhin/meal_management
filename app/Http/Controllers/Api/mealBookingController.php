@@ -33,7 +33,7 @@ class mealBookingController extends Controller
 
         if ($currentTime->lte($meat_set_last_time)) {
             $storeMeal = new UserMeals();
-            $storeMeal->users_id = $request->users_id;
+            $storeMeal->name = $request->name;
             $storeMeal->quantity = $request->quantity;
             $storeMeal->date = $request->date;
             $storeMeal->status = $request->status;

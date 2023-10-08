@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('monthly_meal_rates', function (Blueprint $table) {
             $table->id();
-            $table->date('month')->nullable();
+            $table->text('month')->nullable();
             $table->float('meal_rate')->nullable();
             $table->tinyInteger('is_visible')->nullable();
             $table->date('month_start_date')->nullable();

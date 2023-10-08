@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\UserMeals;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class mealController extends Controller
 {
-     // public function add_meal(){
+    // public function add_meal(){
     //     return 'text';
     // }
 
@@ -24,7 +25,8 @@ class mealController extends Controller
     //     return response()->json(['message' => 'Info save successfully'], 200);
     // }
 
-    public function add_meal(){
+    public function add_meal()
+    {
         return view('admin.meal.add_meal');
     }
 
@@ -32,7 +34,7 @@ class mealController extends Controller
     {
         //        dd(request()->all());
         $meal = new UserMeals();
-        $meal->users_id = $request->users_id;
+        $meal->name = $request->name;
         // $meal->users_id = $request->users_id;
         $meal->quantity = $request->quantity;
         $meal->date = $request->date;
@@ -42,18 +44,27 @@ class mealController extends Controller
         //        return $request;
 
     }
+    // public function search(Request $request)
+    // {
+    //     $selectedMonth = $request->input('selectedMonth');
+    //     $selectedDate = Carbon::createFromFormat('Y-m-d', date('Y') . '-' . $selectedMonth . '-01');
+    //     $meals = UserMeals::whereMonth('date', $selectedDate->month)->get();
+    
+    //     return view('admin.meal.all_meal', compact('meals'));
+    // }
+    
 
-   
+
 
     public function all_meal()
     {
-        return view ('admin.meal.all_meal', [
+        return view('admin.meal.all_meal', [
             'meals' => UserMeals::all()
         ]);
     }
     // public function all_meal()
     // {
-        
+
     //     $meal=UserMeals::all();
     //     return response()->json(["user" => $meal], 200);
     // }
@@ -75,7 +86,7 @@ class mealController extends Controller
     public function update(Request $request, $id)
     {
         $meal = UserMeals::find($id);
-        $meal->users_id = $request->users_id;
+        $meal->name = $request->name;
         // $meal->users_id = $request->users_id;
         $meal->quantity = $request->quantity;
         $meal->date = $request->date;

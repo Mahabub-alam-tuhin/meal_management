@@ -15,7 +15,7 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>users_id</th>
+                        <th>name</th>
                         <th>quantity</th>
                         <th>date</th>
                         <th>status</th>
@@ -28,13 +28,13 @@
                     @foreach($meals as $meal)
                         <tr>
                             <td>{{$i++}}</td>
-                            <td>{{$meal->users_id}}</td> 
+                            <td>{{$meal->name}}</td> 
                             <td>{{$meal->quantity}}</td>                        
                             <td>{{$meal->date}}</td> 
                             <td>{{$meal->status}}</td> 
                             <td>
-                                <a href="{{ route('admin.meal_rate.edit',$meal->id) }}" class="btn btn-primary">Edit</a>
-                                <a href="{{ route('admin.meal.delete',$meal->id) }}" class="btn btn-danger">Delete</a>
+                                <a href="#" class="btn btn-primary">Edit</a>
+                                <a href="#" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     @endforeach

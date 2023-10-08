@@ -19,7 +19,7 @@ class MonthlyMealRateSeeder extends Seeder
        
 
         MonthlyMealRates::create([
-            'month' => '2023-09-01', // First day of September 2023
+            'month' => 'september', // First day of September 2023
             'meal_rate' => 50,
             'is_visible' => true, // Assuming this is a boolean field
             'month_start_date' => '2023-9-15',
@@ -27,7 +27,7 @@ class MonthlyMealRateSeeder extends Seeder
         ]);
 
         MonthlyMealRates::create([
-            'month' => '2023-10-01', // First day of September 2023
+            'month' => 'october', // First day of September 2023
             'meal_rate' => 60,
             'is_visible' => true, // Assuming this is a boolean field
             'month_start_date' => '2023-10-15',
@@ -35,7 +35,7 @@ class MonthlyMealRateSeeder extends Seeder
         ]);
 
         MonthlyMealRates::create([
-            'month' => '2023-11-01', // First day of September 2023
+            'month' => 'november', // First day of September 2023
             'meal_rate' => 40,
             'is_visible' => true, // Assuming this is a boolean field
             'month_start_date' => '2023-11-15',

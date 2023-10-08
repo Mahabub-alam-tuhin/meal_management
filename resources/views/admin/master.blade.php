@@ -37,6 +37,8 @@
         class="template-customizer-theme-css" />
     <link rel="stylesheet" href="/adminAsset/css/demo.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.css" rel="stylesheet">
+
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="/adminAsset/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
@@ -184,7 +186,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
     <!-- endbuild -->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.js"></script>
 
     <!-- Main JS -->
     <script src="/adminAsset/js/main.js"></script>

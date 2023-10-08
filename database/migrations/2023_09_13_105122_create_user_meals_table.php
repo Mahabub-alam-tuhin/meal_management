@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('user_meals', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('users_id');
+            $table->text('name');
             $table->integer('quantity')->nullable()->default(1);
             $table->date('date')->nullable();
             $table->tinyInteger('status')->default(1);

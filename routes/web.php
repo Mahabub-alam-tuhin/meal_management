@@ -37,8 +37,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     // Route::get('/dashboard', function () {
     //     return view('dashboard');
     // })->name('dashboard');->middleware('isadmin')
-    // ->middleware('isadmin')
-    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard.home');
+    // 
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard.home')->middleware('isadmin');
     Route::get('/add_user', [User_managementController::class, 'add_user'])->name('admin.user_management.add_user');
     Route::post('/store', [User_managementController::class, 'store'])->name('admin.user_management.store');
     Route::get('/all_user', [User_managementController::class, 'all_user'])->name('admin.user_management.all_user');
@@ -49,10 +49,12 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::prefix('meal')->group(function () {
         Route::get('/add_meal', [mealController::class, 'add_meal'])->name('admin.meal.add_meal');
         Route::post('/store', [mealController::class, 'store'])->name('admin.meal.store');
+        // Route::get('/search', [mealController::class, 'search'])->name('admin.meal.search');
         Route::get('/all_meal', [mealController::class, 'all_meal'])->name('admin.meal.all_meal');
         Route::get('/find/{id}', [mealController::class, 'find'])->name('admin.meal.edit');
         Route::post('/update/{id}', [mealController::class, 'update'])->name('admin.meal.update');
         Route::get('/delete/{id}', [mealController::class, 'delete'])->name('admin.meal.delete');
+   
     });
 
     Route::prefix('meal_rate')->group(function () {
