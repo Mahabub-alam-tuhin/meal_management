@@ -8,6 +8,8 @@ use App\Http\Controllers\Api\mealBookingController;
 use App\Http\Controllers\Api\mealController;
 use App\Http\Controllers\Api\mealRateController;
 use App\Http\Controllers\Api\userInfoController;
+use App\Http\Controllers\frontEndBookingController;
+use App\Http\Controllers\frontEndController;
 use App\Http\Controllers\User_managementController;
 use Carbon\Carbon;
 
@@ -21,10 +23,18 @@ use Carbon\Carbon;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', [frontEndController::class, 'index'])->name('/');
+Route::get('/Meal_Booking', [frontEndController::class, 'Meal_Booking'])->name('frontEnd.Meal_Booking.Meal_Booking');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('Booking')->group(function () {
+    Route::get('/add_user_Meal_Booking', [frontEndBookingController::class, 'add_user_Meal_Booking'])->name('frontEnd.Booking.add_user_Meal_Booking');
+    Route::post('/store', [frontEndBookingController::class, 'store'])->name('frontEnd.Booking.store');
+    Route::get('/show', [frontEndBookingController::class, 'show'])->name('frontEnd.Booking.show');
+
 });
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::get('/', function () {
 //     // return view('welcome');
@@ -32,6 +42,7 @@ Route::get('/', function () {
 //     $to = Carbon::parse('2023-09-26 17:30');
 //     dd( $from->diffInMinutes($to, false));
 // });
+
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
     // Route::get('/dashboard', function () {
@@ -88,8 +99,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
 
     Route::prefix('meal_booking')->group(function () {
         Route::get('/all_meal', [mealBookingController::class, 'all_meal'])->name('admin.meal_booking.all_meal');
-        Route::post('/store', [mealBookingController::class, 'store']);
-     
+        Route::post('/store', [mealBookingController::class, 'store']);    
     });
     
 });
