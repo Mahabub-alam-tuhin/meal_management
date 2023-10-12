@@ -10,6 +10,8 @@ use App\Http\Controllers\Api\mealRateController;
 use App\Http\Controllers\Api\userInfoController;
 use App\Http\Controllers\frontEndBookingController;
 use App\Http\Controllers\frontEndController;
+use App\Http\Controllers\logincontroller;
+use App\Http\Controllers\registerController;
 use App\Http\Controllers\User_managementController;
 use Carbon\Carbon;
 
@@ -24,7 +26,15 @@ use Carbon\Carbon;
 |
 */
 Route::get('/', [frontEndController::class, 'index'])->name('/');
-Route::get('/Meal_Booking', [frontEndController::class, 'Meal_Booking'])->name('frontEnd.Meal_Booking.Meal_Booking');
+Route::get('/Meal_Booking', [frontEndController::class, 'Meal_Booking'])->name('frontEnd.Meal_Booking.Meal_Booking')->middleware(['isuser']);;
+
+Route::prefix('register')->group(function(){
+    Route::get('/register',[registerController::class,'register'])->name('frontEnd.register.register');
+    Route::post('/store', [registerController::class, 'store'])->name('frontEnd.register.store');
+});
+Route::prefix ('login')->group(function(){
+    Route::get('/login', [logincontroller::class, 'login'])->name('frontEnd.login.login');
+});
 
 Route::prefix('Booking')->group(function () {
     Route::get('/add_user_Meal_Booking', [frontEndBookingController::class, 'add_user_Meal_Booking'])->name('frontEnd.Booking.add_user_Meal_Booking');
@@ -32,6 +42,7 @@ Route::prefix('Booking')->group(function () {
     Route::get('/show', [frontEndBookingController::class, 'show'])->name('frontEnd.Booking.show');
 
 });
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });

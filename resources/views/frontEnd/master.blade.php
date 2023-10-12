@@ -37,6 +37,7 @@
   @include('frontEnd.include.header')
  <!-- End Header -->
  @yield('content')
+ @include('frontEnd.include.footer')
   <!-- ======= Hero Section ======= -->
  <!-- End Hero Section -->
   <!-- Vendor JS Files -->

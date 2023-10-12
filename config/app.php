@@ -154,7 +154,12 @@ return [
     | this array to grant expanded functionality to your applications.
     |
     */
-
+    'providers' => [
+        // ...
+        Laravel\Jetstream\JetstreamServiceProvider::class,
+        // ...
+    ],
+    
     'providers' => ServiceProvider::defaultProviders()->merge([
         /*
          * Package Service Providers...
