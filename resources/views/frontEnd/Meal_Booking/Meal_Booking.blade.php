@@ -23,7 +23,7 @@
                             <div class="d-flex">
                                 <div class="text-end">
                                     <h4 class="mt-0 counter font-primary">{{$payment}}</h4>
-                                    <span>Total Cash</span>
+                                    <span>Total Amount</span>
                                 </div>
                             </div>
                             <div class="dashboard-chart-container">

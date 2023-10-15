@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserMeals extends Model
 {
-    use HasFactory;
+    protected $guarded = [];
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'user_meal');
+    }
+    public function user(){
+        return $this->hasOne(User::class,"id",'user_id');
+    } 
 }

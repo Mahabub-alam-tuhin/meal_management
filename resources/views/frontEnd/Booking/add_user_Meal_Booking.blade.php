@@ -10,9 +10,9 @@
             <div class="row">
                 <div class="col">
                     <div class="mb-3 row">
-                        <label class="col-sm-3 col-form-label">User Name</label>
+                        <label class="col-sm-3 col-form-label">user_id</label>
                         <div class="col-sm-9">
-                            <input type="text" name="name" class="form-control" placeholder="Type your name">
+                            <input type="text" name="user_id" class="form-control" placeholder="Type your name">
                         </div>
                     </div>
                     <div class="mb-3 row">

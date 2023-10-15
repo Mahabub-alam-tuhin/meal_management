@@ -34,8 +34,8 @@ class mealController extends Controller
     {
         //        dd(request()->all());
         $meal = new UserMeals();
-        $meal->name = $request->name;
-        // $meal->users_id = $request->users_id;
+        // $meal->name = $request->name;
+        $meal->user_id = $request->user_id;
         $meal->quantity = $request->quantity;
         $meal->date = $request->date;
         $meal->save();
@@ -59,9 +59,10 @@ class mealController extends Controller
     public function all_meal()
     {
         return view('admin.meal.all_meal', [
-            'meals' => UserMeals::all()
+            'meals' => UserMeals::with('user')->get()
         ]);
     }
+    
     // public function all_meal()
     // {
 

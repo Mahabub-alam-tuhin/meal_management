@@ -28,7 +28,7 @@
                     @foreach($meals as $meal)
                         <tr>
                             <td>{{$i++}}</td>
-                            <td>{{$meal->name}}</td> 
+                            <td>{{$meal->user->name}}</td> 
                             <td>{{$meal->quantity}}</td>                        
                             <td>{{$meal->date}}</td> 
                             <td>{{$meal->status}}</td> 

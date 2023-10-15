@@ -1,4 +1,4 @@
-@extends('frontEnd.user-master')
+@extends('admin.master')
 @section('content')
 
     <div class="card">
@@ -15,27 +15,23 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>users_id</th>
-                        <th>Quantity</th>
-                        <th>Date</th>
+                        <th>date</th>
+                        <th>user_id</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <thead>
                     <tbody>
                     @php $i=1 @endphp
-                    @foreach($meals as $meal)
+                    @foreach($users as $meal)
                         <tr>
-                            {{-- @dd($meal); --}}
                             <td>{{$i++}}</td>
-                            <td>{{$meal->user->name}}</td>
-                            <td>{{$meal->user_id}}</td>                             
-                            <td>{{$meal->quantity}}</td>                                              
-                            <td>{{$meal->date}}</td>                         
+                            <td>{{$meal->date}}</td> 
+                            <td>{{$meal->user_id}}</td>                                              
+                            <td>{{$meal->status}}</td> 
                             <td>
-                                <a href="#" class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
+                                <a href="{{ route('admin.meal_rate.edit',$meal->id) }}" class="btn btn-primary">Edit</a>
+                                <a href="{{ route('admin.meal.delete',$meal->id) }}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     @endforeach

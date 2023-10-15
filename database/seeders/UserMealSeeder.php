@@ -17,19 +17,19 @@ class UserMealSeeder extends Seeder
         UserMeals::truncate();
 
         UserMeals::create([
-            'name' => 'Rakib',
+            'user_id' => '1',
             'quantity' =>'2' ,
             'date' => '2023-09-17',
             
         ]);
         UserMeals::create([
-            'name' => 'Sakib',
+            'user_id' => '2',
             'quantity' =>'1' ,
             'date' => '2023-09-18',
             
         ]);
         UserMeals::create([
-            'name' => 'tusar',
+            'user_id' => '3',
             'quantity' =>'1' ,
             'date' => '2023-09-19',
             

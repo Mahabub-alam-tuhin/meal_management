@@ -18,7 +18,7 @@ class frontEndBookingController extends Controller
 
         if ($currentTime->lte($meat_set_last_time)) {
             $meals = new UserMeals();
-            $meals->name = $request->name;
+            $meals->user_id = $request->user_id;
             $meals->quantity = $request->quantity;
             $meals->date = $request->date;
             $meals->save();
@@ -29,9 +29,12 @@ class frontEndBookingController extends Controller
 
     }
     public function show()
-    {
-        $meals = UserMeals::all();
+    {  
+        // dd(auth()->user());
+        $id = auth()->user()->id; 
+        $meals = UserMeals::where('user_id', $id)->with('user')->get();
         return view('frontEnd.Booking.show', compact('meals'));
     }
+    
     
 }

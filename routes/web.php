@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\userInfoController;
 use App\Http\Controllers\frontEndBookingController;
 use App\Http\Controllers\frontEndController;
 use App\Http\Controllers\logincontroller;
+use App\Http\Controllers\mealRegistercontroller;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\User_managementController;
 use Carbon\Carbon;
@@ -79,6 +80,13 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
    
     });
 
+    Route::prefix('meal_register')->group(function () {
+        Route::get('/Add_user_meal', [mealRegistercontroller::class, 'Add_user_meal'])->name('admin.meal_register.Add_user_meal');
+        Route::post('/store', [mealRegistercontroller::class, 'store'])->name('admin.meal_register.store');    
+        Route::get('/all_user_meal', [mealRegistercontroller::class, 'all_user_meal'])->name('admin.meal_register.all_user_meal');
+
+    });
+
     Route::prefix('meal_rate')->group(function () {
         Route::get('/add_meal_rate', [mealRateController::class, 'add_meal_rate'])->name('admin.meal_rate.add_meal_rate');
         Route::post('/store', [mealRateController::class, 'store'])->name('admin.meal_rate.store');
@@ -113,4 +121,5 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::post('/store', [mealBookingController::class, 'store']);    
     });
     
+
 });

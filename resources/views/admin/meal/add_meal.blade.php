@@ -13,10 +13,10 @@
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="role">User Name</label>
                             <div class="col-sm-10">
-                                <select class="form-select select2 meal_user" name="name" aria-label="Default select example">
+                                <select class="form-select select2 meal_user" name="user_id" aria-label="Default select example">
                                     <option selected>Open this select menu</option>
                                     @foreach (App\Models\User::get() as $user)
-                                        <option value="{{ $user->name }}">{{ $user->name }}</option>
+                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

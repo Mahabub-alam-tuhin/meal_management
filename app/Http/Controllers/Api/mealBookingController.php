@@ -15,7 +15,7 @@ class mealBookingController extends Controller
     public function all_meal()
     {
         return view ('admin.meal_booking.all_meal', [
-            'meals' => UserMeals::all()
+            'meals' => UserMeals::with('user')->get()
         ]);
     }
     // public function all_meal()
