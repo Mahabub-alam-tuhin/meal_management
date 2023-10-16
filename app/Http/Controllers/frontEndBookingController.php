@@ -12,13 +12,14 @@ class frontEndBookingController extends Controller
     }
     public function store(Request $request)
     {
+        $user_id = auth()->user()->id;
         // $storeMeal = new UserMeals();
         $currentTime = Carbon::now();
         $meat_set_last_time = Carbon::today()->setHour(18)->setMinute(0)->setSecond(0);
 
         if ($currentTime->lte($meat_set_last_time)) {
             $meals = new UserMeals();
-            $meals->user_id = $request->user_id;
+            $meals->user_id = $user_id;
             $meals->quantity = $request->quantity;
             $meals->date = $request->date;
             $meals->save();
@@ -35,6 +36,4 @@ class frontEndBookingController extends Controller
         $meals = UserMeals::where('user_id', $id)->with('user')->get();
         return view('frontEnd.Booking.show', compact('meals'));
     }
-    
-    
 }

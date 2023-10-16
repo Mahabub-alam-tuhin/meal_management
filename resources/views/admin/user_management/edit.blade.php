@@ -15,7 +15,7 @@
                                 </div>
                             </div>
                             
-                            <div class="row mb-3">
+                            {{-- <div class="row mb-3">
                                 <label for="inputEmailAddress2" class="col-sm-3 col-form-label">User Role</label>
                                 <div class="col-sm-9">
                                     <select class="form-select" name="user_role" aria-label="Default select example">
@@ -25,7 +25,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="row mb-3">
                                 <label for="inputEmailAddress2" class="col-sm-3 col-form-label">Mobile</label>
@@ -41,12 +41,27 @@
                                 </div>
                             </div>
                         
-                            <div class="row mb-3">
+                            {{-- <div class="row mb-3">
                                 <label for="inputEmailAddress2" class="col-sm-3 col-form-label">Department</label>
                                 <div class="col-sm-9">
                                     <input type="text" value="{{$saveuser->department}}" name="department" class="form-control" id="inputEmailAddress2" placeholder="Department">
                                 </div>
+                            </div> --}}
+                            <div class="row mb-3">
+                                <label for="inputDepartment" class="col-sm-3 col-form-label">Department</label>
+                                <div class="col-sm-9">
+                                    <select class="form-select" name="department" id="inputDepartment" aria-label="Select Department">
+                                        <option selected>Open this select menu</option>
+                                        @foreach ($departments as $depart)
+                                            <option value="{{ $depart->id }}" @if ($depart->id == $saveuser->department) selected @endif>
+                                                {{ $depart->department }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
+                            
+                            
 
                             <div class="row mb-3">
                                 <label for="inputEmailAddress2" class="col-sm-3 col-form-label">Address</label>
@@ -58,7 +73,13 @@
                             <div class="row mb-3">
                                 <label for="inputEmailAddress2" class="col-sm-3 col-form-label">Password</label>
                                 <div class="col-sm-9">
-                                    <input type="text" value="{{$saveuser->password}}" name="password" class="form-control" id="inputEmailAddress2" placeholder="password">
+                                    <input type="password" value="{{$saveuser->password}}" name="password" class="form-control" id="inputEmailAddress2" placeholder="password">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputEmailAddress2" class="col-sm-3 col-form-label">confirm Password</label>
+                                <div class="col-sm-9">
+                                    <input type="password" value="{{$saveuser->password_confirmation}}" name="password_confirmation" class="form-control" id="inputEmailAddress2" placeholder="password">
                                 </div>
                             </div>
                           

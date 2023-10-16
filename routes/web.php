@@ -13,7 +13,9 @@ use App\Http\Controllers\frontEndController;
 use App\Http\Controllers\logincontroller;
 use App\Http\Controllers\mealRegistercontroller;
 use App\Http\Controllers\registerController;
+use App\Http\Controllers\user_contactController;
 use App\Http\Controllers\User_managementController;
+use App\Http\Controllers\user_paymentController;
 use Carbon\Carbon;
 
 /*
@@ -41,6 +43,14 @@ Route::prefix('Booking')->group(function () {
     Route::get('/add_user_Meal_Booking', [frontEndBookingController::class, 'add_user_Meal_Booking'])->name('frontEnd.Booking.add_user_Meal_Booking');
     Route::post('/store', [frontEndBookingController::class, 'store'])->name('frontEnd.Booking.store');
     Route::get('/show', [frontEndBookingController::class, 'show'])->name('frontEnd.Booking.show');
+
+});
+Route::prefix('user_payment')->group(function () {
+    Route::get('/show', [user_paymentController::class, 'show'])->name('frontEnd.user_payment.show');
+
+});
+Route::prefix('user_contact')->group(function () {
+    Route::get('/show', [user_contactController::class, 'show'])->name('frontEnd.user_contact.show');
 
 });
 

@@ -17,7 +17,7 @@
                                     placeholder="please enter the name" />
                             </div>
                         </div>
-                        <div class="row mb-3">
+                        {{-- <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="role">User Role</label>
                             <div class="col-sm-10">
                                 <select class="form-select" name="user_role" aria-label="Default select example">
@@ -27,7 +27,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="Serial">Phone</label>
                             <div class="col-sm-10">
@@ -66,7 +66,14 @@
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="password">password</label>
                             <div class="col-sm-10">
-                                <input type="text" name="password" class="form-control" id="password"
+                                <input type="password" name="password" class="form-control" id="password"
+                                    placeholder="password" />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="password">confirm Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" name="password_confirmation" class="form-control" id="password"
                                     placeholder="password" />
                             </div>
                         </div>

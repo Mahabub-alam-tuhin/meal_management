@@ -2,19 +2,19 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h5>Basic HTML input control</h5>
+        <h5>Booked Your Meal</h5>
     </div>
     <form action="{{ route('frontEnd.Booking.store') }}" method="post">
         @csrf        
         <div class="card-body">
             <div class="row">
                 <div class="col">
-                    <div class="mb-3 row">
+                    {{-- <div class="mb-3 row">
                         <label class="col-sm-3 col-form-label">user_id</label>
                         <div class="col-sm-9">
                             <input type="text" name="user_id" class="form-control" placeholder="Type your name">
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="mb-3 row">
                         <label class="col-sm-3 col-form-label">Quantity</label>
                         <div class="col-sm-9">

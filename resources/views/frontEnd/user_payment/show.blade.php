@@ -3,7 +3,7 @@
 
     <div class="card">
         <div class="card-header border-bottom">
-            <h5 class="card-title mb-3">Meal List</h5>
+            <h5 class="card-title mb-3">Payment List</h5>
             <div class="d-flex justify-content-between align-items-center row pb-2 gap-3 gap-md-0">
                 <div class="col-md-4 user_role"></div>
                 <div class="col-md-4 user_plan"></div>
@@ -15,24 +15,24 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
+                        <th>month</th>
                         {{-- <th>users_id</th> --}}
-                        <th>Quantity</th>
-                        <th>Date</th>
+                        <th>payment_date</th>
+                        <th>amount</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <thead>
                     <tbody>
                     @php $i=1 @endphp
-                    @foreach($meals as $meal)
+                    @foreach($userPayments as $Payments )
                         <tr>
                             {{-- @dd($meal); --}}
                             <td>{{$i++}}</td>
-                            <td>{{$meal->user->name}}</td>
+                            <td>{{$Payments->month}}</td>
                             {{-- <td>{{$meal->user_id}}</td>                              --}}
-                            <td>{{$meal->quantity}}</td>                                              
-                            <td>{{$meal->date}}</td>                         
+                            <td>{{$Payments->payment_date}}</td>                                              
+                            <td>{{$Payments->amount}}</td>                         
                             <td>
                                 <a href="#" class="btn btn-primary">Edit</a>
                                 <a href="#" class="btn btn-danger">Delete</a>
