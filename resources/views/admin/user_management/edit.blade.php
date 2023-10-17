@@ -53,7 +53,7 @@
                                     <select class="form-select" name="department" id="inputDepartment" aria-label="Select Department">
                                         <option selected>Open this select menu</option>
                                         @foreach ($departments as $depart)
-                                            <option value="{{ $depart->id }}" @if ($depart->id == $saveuser->department) selected @endif>
+                                            <option value="{{ $depart->id }}" @if ($depart->department == $saveuser->department) selected @endif>
                                                 {{ $depart->department }}
                                             </option>
                                         @endforeach

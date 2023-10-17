@@ -13,7 +13,7 @@
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="name">month</label>
                             <div class="col-sm-10">
-                                <input type="text" name="month" class="form-control" id="name"
+                                <input type="month" name="month" class="form-control" id="name"
                                     placeholder="please enter the name" />
                             </div>
                         </div>

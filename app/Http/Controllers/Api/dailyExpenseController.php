@@ -21,7 +21,7 @@ class dailyExpenseController extends Controller
         $expense->price = $request->price;
         $expense->total = $request->total;
         $expense->bajar_date = $request->bajar_date;
-        $expense->status = $request->status;
+        // $expense->status = $request->status;
         $expense->save();
         return back()->with('message', 'Info save successfully');
     }
@@ -58,7 +58,7 @@ class dailyExpenseController extends Controller
         $expenses->price =$request->price;
         $expenses->total =$request->total;
         $expenses->bajar_date =$request->bajar_date;
-        $expenses->status =$request->status;
+        // $expenses->status =$request->status;
         $expenses->update();
         return redirect()->route('admin.daily_expense.all_expense');
 
@@ -80,13 +80,44 @@ class dailyExpenseController extends Controller
 
     public function delete($id)
     {
+        // @dd($id);
         daily_expense::where('id', $id)->delete();
         return redirect()->route('admin.daily_expense.all_expense');
+
     }
+    
     
     // public function delete($id)
     // {
     //     daily_expense::where('id', $id)->delete();
     //     return response()->json(['message' => 'Info delete successfully'], 200);
     // }
+
+    public function search(Request $request)
+    {
+        $searchText = $request->input('searchText');
+        $selectedDate = $request->input('selectedDate');
+    
+        $query = daily_expense::query();
+    
+        if (!empty($searchText)) {
+            $query->where(function ($subQuery) use ($searchText) {
+                $subQuery->where('title', 'like', "%$searchText%")
+                    ->orWhere('quantity', 'like', "%$searchText%")
+                    ->orWhere('unit', 'like', "%$searchText%")
+                    ->orWhere('price', 'like', "%$searchText%")
+                    ->orWhere('total', 'like', "%$searchText%")
+                    ->orWhere('bajar_date', 'like', "%$searchText%");
+            });
+        }
+    
+        if (!empty($selectedDate)) {
+            $query->whereDate('bajar_date', $selectedDate);
+        }
+    
+        $expense = $query->get();
+    
+        return view('admin.daily_expense.all_expense', compact('expense'));
+    }
+    
 }

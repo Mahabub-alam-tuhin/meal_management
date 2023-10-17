@@ -82,12 +82,12 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::prefix('meal')->group(function () {
         Route::get('/add_meal', [mealController::class, 'add_meal'])->name('admin.meal.add_meal');
         Route::post('/store', [mealController::class, 'store'])->name('admin.meal.store');
-        // Route::get('/search', [mealController::class, 'search'])->name('admin.meal.search');
         Route::get('/all_meal', [mealController::class, 'all_meal'])->name('admin.meal.all_meal');
         Route::get('/find/{id}', [mealController::class, 'find'])->name('admin.meal.edit');
         Route::post('/update/{id}', [mealController::class, 'update'])->name('admin.meal.update');
         Route::get('/delete/{id}', [mealController::class, 'delete'])->name('admin.meal.delete');
-   
+        Route::get('/search', [mealController::class, 'search'])->name('admin.meal.search');
+
     });
 
     Route::prefix('meal_register')->group(function () {
@@ -112,13 +112,17 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::get('/all_expense', [dailyExpenseController::class, 'all_expense'])->name('admin.daily_expense.all_expense');
         Route::get('/find/{id}', [dailyExpenseController::class, 'find'])->name('admin.daily_expense.edit');
         Route::post('/update/{id}', [dailyExpenseController::class, 'update'])->name('admin.daily_expense.update');
-        Route::get('/delete/{id}', [dailyExpenseController::class, 'delete']);
+        Route::get('/delete/{id}', [dailyExpenseController::class, 'delete'])->name('admin.daily_expense.delete');
+        Route::get('/search', [dailyExpenseController::class, 'search'])->name('admin.daily_expense.search');
+
     });
 
     
     Route::prefix('user')->group(function () {
         Route::get('/all_user', [allUserController::class, 'all_user'])->name('admin.user.all_user');
+        Route::get('/search', [allUserController::class, 'searchUsers'])->name('admin.user.search');
         
+
     });
 
     

@@ -49,10 +49,20 @@ class mealController extends Controller
     //     $selectedMonth = $request->input('selectedMonth');
     //     $selectedDate = Carbon::createFromFormat('Y-m-d', date('Y') . '-' . $selectedMonth . '-01');
     //     $meals = UserMeals::whereMonth('date', $selectedDate->month)->get();
-    
+
     //     return view('admin.meal.all_meal', compact('meals'));
     // }
-    
+
+    public function search(Request $request)
+    {
+        $selectedDate = $request->input('selectedDate');
+
+        // Query your meals based on the selectedDate
+        $meals = UserMeals::whereDate('date', $selectedDate)->get();
+
+        return view('admin.meal.all_meal', compact('meals'));
+    }
+
 
 
 
@@ -62,7 +72,7 @@ class mealController extends Controller
             'meals' => UserMeals::with('user')->get()
         ]);
     }
-    
+
     // public function all_meal()
     // {
 

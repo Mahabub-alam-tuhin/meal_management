@@ -38,7 +38,7 @@
                             <td>{{$meal->status}}</td> 
                             <td>
                                 <a href="{{ route('admin.meal_rate.edit',$meal->id) }}" class="btn btn-primary">Edit</a>
-                                <a href="{{ route('admin.meal.delete',$meal->id) }}" class="btn btn-danger">Delete</a>
+                                <a href="{{ route('admin.meal_rate.delete',$meal->id) }}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     @endforeach

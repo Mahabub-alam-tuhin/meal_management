@@ -7,74 +7,94 @@
                 @csrf
                 <div class="card mb-4">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                        <h5 class="mb-0">Basic Layout</h5> <small class="text-muted float-end">Default label</small>
+                        <h5 class="mb-0">Basic Layout</h5>
+                        <small class="text-muted float-end">Default label</small>
                     </div>
                     <div class="card-body">
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="Serial">title</label>
+                            <label class="col-sm-2 col-form-label" for="title">Title</label>
                             <div class="col-sm-10">
                                 <div class="input-group input-group-merge">
-                                    <input type="text" name="title" id="phone" class="form-control"
-                                        placeholder="title" aria-label="john.doe"
-                                        aria-describedby="basic-default-phone" />
+                                    <input type="text" name="title" id="title" class="form-control"
+                                        placeholder="Title" />
                                 </div>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="email">quantity</label>
+                            <label class="col-sm-2 col-form-label" for="quantity">Quantity</label>
                             <div class="col-sm-10">
-                                <input type="text" name="quantity" class="form-control" id="email"
-                                    placeholder="quantity" />
+                                <input type="text" name="quantity" id="quantity" class="form-control" 
+                                    placeholder="Quantity" />
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="Serial">unit</label>
+                            <label class="col-sm-2 col-form-label">Unit</label>
                             <div class="col-sm-10">
-                                <div class="input-group input-group-merge">
-                                    <input type="text" name="unit" id="phone" class="form-control"
-                                        placeholder="unit" aria-label="john.doe"
-                                        aria-describedby="basic-default-phone" />
+                                <div class="form-check">
+                                    <input type="radio" id="kg" name="unit" value="KG" class="form-check-input">
+                                    <label for="kg" class="form-check-label">KG</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" id="gm" name="unit" value="Gm" class="form-check-input">
+                                    <label for="gm" class="form-check-label">Gm</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" id="pcs" name="unit" value="Pcs" class="form-check-input">
+                                    <label for="pcs" class="form-check-label">Pcs</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="email">price</label>
+                            <label class="col-sm-2 col-form-label" for="price">Price</label>
                             <div class="col-sm-10">
-                                <input type="text" name="price" class="form-control" id="email"
-                                    placeholder="price" />
+                                <input type="text" name="price" id="price" class="form-control" 
+                                    placeholder="Price" />
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="Serial">total</label>
+                            <label class="col-sm-2 col-form-label" for="total">Total</label>
                             <div class="col-sm-10">
                                 <div class="input-group input-group-merge">
-                                    <input type="text" name="total" id="phone" class="form-control"
-                                        placeholder="total" aria-label="john.doe"
-                                        aria-describedby="basic-default-phone" />
+                                    <input type="text" name="total" id="total" class="form-control"
+                                        placeholder="Total" readonly />
                                 </div>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="email">bajar_date</label>
+                            <label class="col-sm-2 col-form-label" for="bajar_date">Bajar Date</label>
                             <div class="col-sm-10">
-                                <input type="date" name="bajar_date" class="form-control" id="email"
-                                    placeholder="bajar_date" />
+                                <input type="date" name="bajar_date" class="form-control" 
+                                    placeholder="Bajar Date" />
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="email">status</label>
+                        {{-- <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="status">Status</label>
                             <div class="col-sm-10">
-                                <input type="text" name="status" class="form-control" id="email"
-                                    placeholder="status" />
+                                <input type="text" name="status" class="form-control" 
+                                    placeholder="Status" />
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="row justify-content-end">
                             <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary">Send</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </div>
                     </div>
                 </div>
+            </form>
         </div>
-        </form>
-    @endsection
+    </div>
+
+    <script>
+        // JavaScript to calculate total based on price and quantity
+        document.getElementById('price').addEventListener('input', updateTotal);
+        document.getElementById('quantity').addEventListener('input', updateTotal);
+
+        function updateTotal() {
+            const price = parseFloat(document.getElementById('price').value) || 0;
+            const quantity = parseFloat(document.getElementById('quantity').value) || 0;
+            const total = price * quantity;
+            document.getElementById('total').value = total;
+        }
+    </script>
+@endsection

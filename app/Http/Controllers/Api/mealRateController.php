@@ -84,7 +84,7 @@ class mealRateController extends Controller
     public function delete($id)
     {
         MonthlyMealRates::where('id', $id)->delete();
-        return redirect()->route('admin.meal.all_meal_rate');
+        return redirect()->route('admin.meal_rate.all_meal_rate');
     }
 
     // public function delete($id)

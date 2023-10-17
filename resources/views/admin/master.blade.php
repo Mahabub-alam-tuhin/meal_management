@@ -145,12 +145,12 @@
                     <!-- / Footer -->
 
                     <script>
-                        (function($){
+                        (function($) {
 
                         }(jQuery));
-                        push.create('booked!',{
-                        Body:'welcome'  
-                        timeout:5000
+                        push.create('booked!', {
+                            Body: 'welcome'
+                            timeout: 5000
                         });
                     </script>
 
@@ -183,11 +183,12 @@
     <script src="/adminAsset/vendor/libs/typeahead-js/typeahead.js"></script>
 
     <script src="/adminAsset/vendor/js/menu.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
     <!-- endbuild -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
 
     <!-- Main JS -->
     <script src="/adminAsset/js/main.js"></script>
@@ -198,11 +199,11 @@
 
     @yield('scripts')
     @stack('cjs')
-    
+
     <script>
-       $(document).ready(function() {
-    $('.meal_user').select2();
-});
+        $(document).ready(function() {
+            $('.meal_user').select2();
+        });
     </script>
 </body>
 
