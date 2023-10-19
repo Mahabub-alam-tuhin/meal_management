@@ -21,7 +21,7 @@ class allUserController extends Controller
         }
 
         $userinfo = User::where('user_role', 'User')->select('id', 'name', 'mobile', 'department')->with(['userpayments' => function ($q) {
-            $q->select('id', 'amount', 'users_id');
+            $q->select('id', 'amount', 'user_id');
         }])->with(['userMeal' => function ($r) {
             $r->select('id', 'quantity', 'user_id');
         }])

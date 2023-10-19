@@ -2,7 +2,7 @@
     <ul class="sidebar-menu">
         <li>
         <div class="sidebar-title">Mangement</div><a href="javascript:void(0)">
-           <i><a href="#"></i><span>Profile</span><i
+           <i><a href="{{ route('frontEnd.user_profile.show')}}"></i><span>Profile</span><i
                     class="fa fa-angle-right pull-right"></i></a>
 
         </li>

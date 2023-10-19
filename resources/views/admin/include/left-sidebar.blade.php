@@ -128,7 +128,7 @@
     <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
             <i class="menu-icon tf-icons ti ti-smart-home"></i>
-            <div data-i18n="Users">meal_booking</div>
+            <div data-i18n="Users">user_meal_booking_list</div>
             <div class="badge bg-label-primary rounded-pill ms-auto">3</div>
         </a>
         <ul class="menu-sub">
@@ -160,4 +160,26 @@
             </li>
         </ul>
     </li>
+
+           {{-- Add payment --}}
+
+           <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Users">User Payment</div>
+                <div class="badge bg-label-primary rounded-pill ms-auto">3</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.user_payment.add_payment') }}" class="menu-link">
+                        <div data-i18n="show user">Add_add_payment</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.user_payment.all_payment') }}" class="menu-link">
+                        <div data-i18n="show user">All_user_payment</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
 </ul>

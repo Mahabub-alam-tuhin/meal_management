@@ -16,6 +16,8 @@ use App\Http\Controllers\registerController;
 use App\Http\Controllers\user_contactController;
 use App\Http\Controllers\User_managementController;
 use App\Http\Controllers\user_paymentController;
+use App\Http\Controllers\paymentController;
+use App\Http\Controllers\profileController;
 use Carbon\Carbon;
 
 /*
@@ -39,6 +41,12 @@ Route::prefix ('login')->group(function(){
     Route::get('/login', [logincontroller::class, 'login'])->name('frontEnd.login.login');
 });
 
+Route::prefix('user_profile')->group(function () {
+    Route::get('/show', [profileController::class, 'show'])->name('frontEnd.user_profile.show');
+    Route::get('/edit/{id}', [profileController::class, 'edit'])->name('frontEnd.user_profile.edit');
+    Route::post('/update/{id}', [profileController::class, 'update'])->name('frontEnd.user_profile.update');
+
+});
 Route::prefix('Booking')->group(function () {
     Route::get('/add_user_Meal_Booking', [frontEndBookingController::class, 'add_user_Meal_Booking'])->name('frontEnd.Booking.add_user_Meal_Booking');
     Route::post('/store', [frontEndBookingController::class, 'store'])->name('frontEnd.Booking.store');
@@ -94,6 +102,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::get('/Add_user_meal', [mealRegistercontroller::class, 'Add_user_meal'])->name('admin.meal_register.Add_user_meal');
         Route::post('/store', [mealRegistercontroller::class, 'store'])->name('admin.meal_register.store');    
         Route::get('/all_user_meal', [mealRegistercontroller::class, 'all_user_meal'])->name('admin.meal_register.all_user_meal');
+        Route::get('//delete/{id}', [mealRegistercontroller::class, 'delete'])->name('admin.meal_register.delete');
 
     });
 
@@ -111,7 +120,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::post('/store', [dailyExpenseController::class, 'store'])->name('admin.daily_expense.store');
         Route::get('/all_expense', [dailyExpenseController::class, 'all_expense'])->name('admin.daily_expense.all_expense');
         Route::get('/find/{id}', [dailyExpenseController::class, 'find'])->name('admin.daily_expense.edit');
-        Route::post('/update/{id}', [dailyExpenseController::class, 'update'])->name('admin.daily_expense.update');
+        Route::post('/update/{id}', [dailyExpenseConntroller::class, 'update'])->name('admin.daily_expense.update');
         Route::get('/delete/{id}', [dailyExpenseController::class, 'delete'])->name('admin.daily_expense.delete');
         Route::get('/search', [dailyExpenseController::class, 'search'])->name('admin.daily_expense.search');
 
@@ -135,5 +144,15 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::post('/store', [mealBookingController::class, 'store']);    
     });
     
+    Route::prefix('user_payment')->group(function () {
+        Route::get('/add_payment', [paymentController::class, 'add_payment'])->name('admin.user_payment.add_payment');
+        Route::post('/store', [paymentController::class, 'store'])->name('admin.user_payment.store');
+        Route::get('/all_user_payment', [paymentController::class, 'all_user_payment'])->name('admin.user_payment.all_payment');
+        // Route::get('/find/{id}', [dailyExpenseController::class, 'find'])->name('admin.daily_expense.edit');
+        // Route::post('/update/{id}', [dailyExpenseController::class, 'update'])->name('admin.daily_expense.update');
+        // Route::get('/delete/{id}', [dailyExpenseController::class, 'delete'])->name('admin.daily_expense.delete');
+        // Route::get('/search', [dailyExpenseController::class, 'search'])->name('admin.daily_expense.search');
+
+    });
 
 });

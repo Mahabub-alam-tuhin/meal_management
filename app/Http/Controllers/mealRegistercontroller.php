@@ -29,8 +29,13 @@ class mealRegistercontroller extends Controller
 
     public function all_user_meal()  {
         return view ('admin.meal_register.all_user_meal', [
-            'users' => UserMeals::all()
+            'users' => UserMeals::with('user')->get()
         ]);
     }
     
+    public function delete($id)
+    {
+        UserMeals::where('id', $id)->delete();
+        return redirect()->route('admin.meal_register.all_user_meal');
+    }
 }

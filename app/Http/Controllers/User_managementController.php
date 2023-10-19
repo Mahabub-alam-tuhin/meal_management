@@ -23,16 +23,16 @@ class User_managementController extends Controller
             'email' => 'required|email|unique:users',
             'department' => 'required',
             'address' => 'required',
-            'password' => 'required|min:8',
+            'password' => 'required|min:8|confirmed', // Add "confirmed" rule for password
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', 
         ]);
-
+    
         if ($validator->fails()) {
             return back()
                 ->withErrors($validator)
                 ->withInput();
         }
-
+    
         $saveuser = new User();
         $saveuser->name = $request->input('name');
         $saveuser->user_role = 'User';
@@ -40,18 +40,25 @@ class User_managementController extends Controller
         $saveuser->email = $request->input('email');
         $saveuser->department = $request->input('department');
         $saveuser->address = $request->input('address');
-        $saveuser->password = Hash::make($request->input('password'));
-
+    
+        // Check if password and password_confirmation match before hashing the password
+        if ($request->input('password') === $request->input('password_confirmation')) {
+            $saveuser->password = Hash::make($request->input('password'));
+        } else {
+            return back()->with('error', 'Password and Confirm Password do not match');
+        }
+    
         if ($request->hasFile('image')) {
             $saveuser->image = $this->saveImage($request);
-        }else {
+        } else {
             $saveuser->image = 'adminAsset/user-image/default.jpg';
         }
-
+    
         $saveuser->save();
-
+    
         return back()->with('message', 'Info saved successfully');
     }
+    
     private function saveImage($request)
     {
         $image = $request->file('image');
@@ -90,16 +97,43 @@ class User_managementController extends Controller
     public function update(Request $request, $id)
     {
         $saveuser = User::find($id);
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'mobile' => 'required',
+            'email' => 'required|email',
+            'department' => 'required',
+            'address' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        // If password and confirm password are provided, validate them.
+        if (!empty($request->password) || !empty($request->password_confirmation)) {
+            $validator->merge([
+                'password' => 'required|min:8|confirmed',
+            ]);
+        }
+
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $saveuser->name = $request->name;
-        // $saveuser->user_role = $request->user_role;
         $saveuser->mobile = $request->mobile;
         $saveuser->email = $request->email;
         $saveuser->department = $request->department;
         $saveuser->address = $request->address;
 
+        // Update the password only if it's provided.
+        if (!empty($request->password)) {
+            $saveuser->password = Hash::make($request->password);
+        }
+
         if ($request->hasFile('image')) {
             $saveuser->image = $this->saveImage($request);
         }
+
         $saveuser->update();
         return redirect()->route('admin.user_management.all_user');
     }

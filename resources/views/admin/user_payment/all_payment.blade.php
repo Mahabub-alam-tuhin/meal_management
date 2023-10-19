@@ -15,27 +15,28 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>name</th>
-                        <th>user_id</th>
-                        <th>Queantity</th> 
-                        <th>date</th>                     
+                        <th>Name</th>
+                        <th>users_id</th>
+                        <th>month</th>
+                        <th>payment_date</th>                       
+                        <th>amount</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <thead>
                     <tbody>
                     @php $i=1 @endphp
-                    @foreach($users as $meal)
+                    @foreach($Payments as $Payment)
                         <tr>
                             <td>{{$i++}}</td>
-                            <td>{{$meal->user->name}}</td> 
-                            <td>{{$meal->user_id}}</td>                                              
-                            <td>{{$meal->quantity}}</td> 
-                            <td>{{$meal->date}}</td> 
-
+                            <td>{{$Payment->user->name}}</td> 
+                            <td>{{$Payment->user_id}}</td> 
+                            <td>{{$Payment->month}}</td>                        
+                            <td>{{$Payment->payment_date}}</td> 
+                            <td>{{$Payment->amount}}</td>
                             <td>
-                                <a href="#" class="btn btn-primary">Edit</a>
-                                <a href="{{ route('admin.meal_register.delete',$meal->id) }}" class="btn btn-danger">Delete</a>
+                                <a href="{{route('admin.user_management.edit',$Payment->id)}}" class="btn btn-primary">Edit</a>
+                                <a href="{{route('admin.user_management.delete',$Payment->id)}}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     @endforeach

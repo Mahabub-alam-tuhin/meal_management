@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('user_payments', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('users_id');
-            $table->date('month')->nullable();
+            $table->bigInteger('user_id');
+            $table->text('month')->nullable();
             $table->date('payment_date')->nullable();
             $table->integer('amount')->nullable();
             $table->tinyInteger('status')->default(1);

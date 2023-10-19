@@ -69,7 +69,7 @@ class User extends Authenticatable
     // } 
 
     public function userpayments(){
-        return $this->hasMany(UserPayments::class,"users_id","id");
+        return $this->hasMany(UserPayments::class,"user_id","id");
     }
 
     public function userMeal(){

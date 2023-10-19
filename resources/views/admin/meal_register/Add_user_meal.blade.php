@@ -17,17 +17,17 @@
                             </div>
                         </div>
                         
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="users">User Name</label>
-                            <div class="col-sm-10">
-                                @foreach (App\Models\User::where('user_role', 'User')->get() as $user)
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="user_id[]" value="{{ $user->id }}" id="user_{{ $user->id }}">
-                                        <label class="form-check-label" for="user_{{ $user->id }}">{{ $user->name }}</label>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label" for="meal_user">User Name</label>
+    <div class="col-sm-10">
+        <select class="form-control meal_user" name="user_id[]" id="users" multiple>
+            @foreach (App\Models\User::where('user_role', 'User')->get() as $user)
+                <option value="{{ $user->id }}">{{ $user->name }}</option>
+            @endforeach
+        </select>
+    </div>
+</div>
+
                         <div class="row justify-content-end">
                             <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary">Send</button>
@@ -37,7 +37,17 @@
                 </div>
         </div>
 
+        <script>
+            $(document).ready(function() {
+                $('#meal_user').select2({
+                    allowClear: true,
+                    placeholder: 'Search for users',
+                    minimumInputLength: 2, // Minimum characters to start searching
+                });
+            });
+        </script>
         
         </form>
 
+        
     @endsection

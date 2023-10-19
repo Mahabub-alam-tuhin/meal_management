@@ -13,7 +13,7 @@ class user_paymentController extends Controller
  public function show()
 {
     $id = auth()->user()->id; 
-    $userPayments = UserPayments::where('users_id', $id)->get();
+    $userPayments = UserPayments::where('user_id', $id)->get();
     return view('frontEnd.user_payment.show', [
         'userPayments' => $userPayments
     ]);
