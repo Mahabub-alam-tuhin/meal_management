@@ -19,27 +19,27 @@ class MonthlyMealRateSeeder extends Seeder
        
 
         MonthlyMealRates::create([
-            'month' => 'september', // First day of September 2023
+            'month' => Carbon::parse('2023-09-01')->format('Y-m-d'), // First day of September 2023
             'meal_rate' => 50,
             'is_visible' => true, // Assuming this is a boolean field
-            'month_start_date' => '2023-9-15',
-            'month_end_date' => '2023-10-15',
+            'month_start_date' => Carbon::parse('2023-09-15')->format('Y-m-d'),
+            'month_end_date' => Carbon::parse('2023-10-15')->format('Y-m-d'),
         ]);
 
         MonthlyMealRates::create([
-            'month' => 'october', // First day of September 2023
+            'month' => Carbon::parse('2023-10-01')->format('Y-m-d'), // First day of September 2023
             'meal_rate' => 60,
             'is_visible' => true, // Assuming this is a boolean field
-            'month_start_date' => '2023-10-15',
-            'month_end_date' => '2023-11-15',
+            'month_start_date' => Carbon::parse('2023-10-15')->format('Y-m-d'),
+            'month_end_date' => Carbon::parse('2023-11-15')->format('Y-m-d'),
         ]);
 
         MonthlyMealRates::create([
-            'month' => 'november', // First day of September 2023
+            'month' => Carbon::parse('2023-11-01')->format('Y-m-d'), // First day of September 2023
             'meal_rate' => 40,
             'is_visible' => true, // Assuming this is a boolean field
-            'month_start_date' => '2023-11-15',
-            'month_end_date' => '2023-12-15',
+            'month_start_date' => Carbon::parse('2023-11-15')->format('Y-m-d'),
+            'month_end_date' => Carbon::parse('2023-12-15')->format('Y-m-d'),
         ]);
 
         // for ($i = 1; $i <= 1; $i++) {

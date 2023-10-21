@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('monthly_meal_rates', function (Blueprint $table) {
+        Schema::create('duelists', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id')->nullable();
             $table->date('month')->nullable();
-            $table->float('meal_rate')->nullable();
-            $table->tinyInteger('is_visible')->nullable();
-            $table->date('month_start_date')->nullable();
-            $table->date('month_end_date')->nullable();
-            $table->tinyInteger('status')->default(1);
+            $table->float('amount')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('monthly_meal_rates');
+        Schema::dropIfExists('duelists');
     }
 };

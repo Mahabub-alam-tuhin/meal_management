@@ -97,7 +97,7 @@
     <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
             <i class="menu-icon tf-icons ti ti-smart-home"></i>
-            <div data-i18n="Users">User due list</div>
+            <div data-i18n="Users">User Due List</div>
             <div class="badge bg-label-primary rounded-pill ms-auto">3</div>
         </a>
         <ul class="menu-sub">
@@ -109,7 +109,7 @@
         </ul>
     </li>
                 {{-- All info --}}
-    <li class="menu-item">
+    {{-- <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
             <i class="menu-icon tf-icons ti ti-smart-home"></i>
             <div data-i18n="Users">info</div>
@@ -122,13 +122,13 @@
                 </a>
             </li>
         </ul>
-    </li>
+    </li> --}}
 
     {{-- meal_booking --}}
     <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
             <i class="menu-icon tf-icons ti ti-smart-home"></i>
-            <div data-i18n="Users">user_meal_booking_list</div>
+            <div data-i18n="Users">User Meal Booking List</div>
             <div class="badge bg-label-primary rounded-pill ms-auto">3</div>
         </a>
         <ul class="menu-sub">
@@ -144,18 +144,18 @@
     <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
             <i class="menu-icon tf-icons ti ti-smart-home"></i>
-            <div data-i18n="Users">meal_register</div>
+            <div data-i18n="Users">Meal Register</div>
             <div class="badge bg-label-primary rounded-pill ms-auto">3</div>
         </a>
         <ul class="menu-sub">
             <li class="menu-item">
                 <a href="{{ route('admin.meal_register.Add_user_meal') }}" class="menu-link">
-                    <div data-i18n="show user">Add_user_meal</div>
+                    <div data-i18n="show user">Add User Meal</div>
                 </a>
             </li>
             <li class="menu-item">
                 <a href="{{ route('admin.meal_register.all_user_meal') }}" class="menu-link">
-                    <div data-i18n="show user">All_user_meal</div>
+                    <div data-i18n="show user">All User Meal</div>
                 </a>
             </li>
         </ul>
@@ -172,12 +172,12 @@
             <ul class="menu-sub">
                 <li class="menu-item">
                     <a href="{{ route('admin.user_payment.add_payment') }}" class="menu-link">
-                        <div data-i18n="show user">Add_add_payment</div>
+                        <div data-i18n="show user">Add Payment</div>
                     </a>
                 </li>
                 <li class="menu-item">
                     <a href="{{ route('admin.user_payment.all_payment') }}" class="menu-link">
-                        <div data-i18n="show user">All_user_payment</div>
+                        <div data-i18n="show user">All User Payment</div>
                     </a>
                 </li>
             </ul>
