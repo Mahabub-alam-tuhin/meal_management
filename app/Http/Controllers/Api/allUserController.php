@@ -74,4 +74,12 @@ class allUserController extends Controller
 
         return view('admin.user.all_user', compact('userinfo'));
     }
+    
+    public function delete($id)
+    {
+        // @dd($id);
+        User::where('id', $id)->delete();
+        return redirect()->route('admin.user.all_user');
+
+    }
 }

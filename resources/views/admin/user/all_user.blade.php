@@ -43,7 +43,7 @@
                                 <td>{{ $meal->due }}</td>
                                 <td>
                                     <a href="{{ route('admin.daily_expense.edit', $meal->id) }}" class="btn btn-primary">Edit</a>
-                                    <a href="{{ route('admin.daily_expense.delete', $meal->id) }}" class="btn btn-danger">Delete</a>
+                                    <a href="{{ route('admin.user.delete', $meal->id) }}" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                         @endforeach

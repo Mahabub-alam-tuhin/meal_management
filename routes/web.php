@@ -55,6 +55,8 @@ Route::prefix('Booking')->group(function () {
 });
 Route::prefix('user_payment')->group(function () {
     Route::get('/show', [user_paymentController::class, 'show'])->name('frontEnd.user_payment.show');
+    Route::get('/user-payments/pdf', [user_paymentController::class, 'showPdf'])->name('user-payments.pdf');
+    // Route::get('/user-payments/pdf', 'user_paymentController@show')->name('user-payments.pdf');
 
 });
 Route::prefix('user_contact')->group(function () {
@@ -130,7 +132,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::prefix('user')->group(function () {
         Route::get('/all_user', [allUserController::class, 'all_user'])->name('admin.user.all_user');
         Route::get('/search', [allUserController::class, 'searchUsers'])->name('admin.user.search');
-        
+        Route::get('/delete/{id}', [allUserController::class, 'delete'])->name('admin.user.delete');
+
 
     });
 

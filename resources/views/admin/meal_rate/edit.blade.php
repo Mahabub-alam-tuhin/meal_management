@@ -43,13 +43,6 @@
                                     <input type="text" value="{{$mealRate->month_end_date}}" name="month_end_date" class="form-control" id="inputEmailAddress2" placeholder="Address">
                                 </div>
                             </div>
-
-                            <div class="row mb-3">
-                                <label for="inputEmailAddress2" class="col-sm-3 col-form-label">status</label>
-                                <div class="col-sm-9">
-                                    <input type="text" value="{{$mealRate->status}}" name="status" class="form-control" id="inputEmailAddress2" placeholder="password">
-                                </div>
-                            </div>
                             <div class="row">
                                 <label class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-9">

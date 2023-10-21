@@ -21,7 +21,6 @@ class mealRateController extends Controller
        $meal->is_visible = $request->is_visible;
        $meal->month_start_date = $request->month_start_date;
        $meal->month_end_date = $request->month_end_date;
-       $meal->status = $request->status;
        $meal->save();
        return back()->with('message', 'Info save successfully');
 
@@ -62,7 +61,6 @@ class mealRateController extends Controller
         $mealRate->is_visible = $request->is_visible;
         $mealRate->month_start_date = $request->month_start_date;
         $mealRate->month_end_date = $request->month_end_date;
-        $mealRate->status = $request->status;
         $mealRate->update();
         return redirect()->route('admin.meal_rate.all_meal_rate');
     }

@@ -157,6 +157,7 @@ return [
     'providers' => [
         // ...
         Laravel\Jetstream\JetstreamServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
         // ...
     ],
     
@@ -189,6 +190,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'PDF' => Barryvdh\DomPDF\Facade::class,
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 

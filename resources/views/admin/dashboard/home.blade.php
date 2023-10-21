@@ -1,13 +1,13 @@
 @extends('admin.master')
 @section('content')
-    <!-- Total Profit -->
-    {{-- <div class="row">
+   
+    <div class="row">
         <div class="col-xl-2 col-md-4 col-6 mb-4">
             <div class="card">
                 <div class="card-body">
                     <div class="badge p-2 bg-label-danger mb-2 rounded"><i class="ti ti-currency-dollar ti-md"></i></div>
-                    <h5 class="card-title mb-1 pt-2">Total GUIDE</h5>
-                    <p class="mb-2 mt-1">{{ $saveguides }}</p>
+                    <h5 class="card-title mb-1 pt-2">AMOUNT</h5>
+                    <p class="mb-2 mt-1">{{$userpayment}}</p>
                     <div class="pt-1">
                         <span class="badge bg-label-secondary">-12.2%</span>
                     </div>
@@ -20,8 +20,8 @@
             <div class="card">
                 <div class="card-body">
                     <div class="badge p-2 bg-label-info mb-2 rounded"><i class="ti ti-chart-bar ti-md"></i></div>
-                    <h5 class="card-title mb-1 pt-2">Total Booking</h5>
-                    <p class="mb-2 mt-1">{{ $book }}</p>
+                    <h5 class="card-title mb-1 pt-2">QUANTITY</h5>
+                    <p class="mb-2 mt-1">{{$totalMeal}} </p>
                     <div class="pt-1">
                         <span class="badge bg-label-secondary">+25.2%</span>
                     </div>
@@ -34,66 +34,19 @@
             <div class="card">
                 <div class="card-body">
                     <div class="badge p-2 bg-label-danger mb-2 rounded"><i class="ti ti-currency-dollar ti-md"></i></div>
-                    <h5 class="card-title mb-1 pt-2">Total SPOT</h5>
-                    <p class="mb-2 mt-1">{{ $saveresorts }}</p>
+                    <h5 class="card-title mb-1 pt-2">TOTAL_DUE</h5>
+                    <p class="mb-2 mt-1">{{$total_due}} </p>
                     <div class="pt-1">
                         <span class="badge bg-label-secondary">-12.2%</span>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Total Sales -->
-        <div class="col-xl-2 col-md-4 col-6 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="badge p-2 bg-label-info mb-2 rounded"><i class="ti ti-chart-bar ti-md"></i></div>
-                    <h5 class="card-title mb-1 pt-2">Total Income</h5>
-                    <p class="mb-2 mt-1">{{$total_income}}</p>
-                    <div class="pt-1">
-                        <span class="badge bg-label-secondary">+25.2%</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Total Profit -->
-        <div class="col-xl-2 col-md-4 col-6 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="badge p-2 bg-label-danger mb-2 rounded"><i class="ti ti-currency-dollar ti-md"></i></div>
-                    <h5 class="card-title mb-1 pt-2">Total Profit</h5>
-                    <p class="mb-2 mt-1">1.28k</p>
-                    <div class="pt-1">
-                        <span class="badge bg-label-secondary">-12.2%</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Total Sales -->
-        <div class="col-xl-2 col-md-4 col-6 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="badge p-2 bg-label-info mb-2 rounded"><i class="ti ti-chart-bar ti-md"></i></div>
-                    <h5 class="card-title mb-1 pt-2">Total Sales</h5>
-                    <p class="mb-2 mt-1">$4,673</p>
-                    <div class="pt-1">
-                        <span class="badge bg-label-secondary">+25.2%</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-6">
-            <div class="card">
-            <canvas id="muliChart" class="chartjs" data-height="400" 
-                style="display: block; box-sizing: border-box; height: 400px; width: 100%;"></canvas>
-            </div>  
-        </div>     
+        <!-- Total Sales -->     
     </div>
 
     
-    @push('cjs')
+    {{-- @push('cjs')
         <script src="/adminAsset/js/chartjs.js"></script>
         <script>
             isRtl = isDarkStyle = true;
@@ -200,5 +153,5 @@
                     }
                 })
         </script>       
-    @endpush --}}
+    @endpush  --}}
 @endsection
