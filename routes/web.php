@@ -18,6 +18,7 @@ use App\Http\Controllers\User_managementController;
 use App\Http\Controllers\user_paymentController;
 use App\Http\Controllers\paymentController;
 use App\Http\Controllers\profileController;
+use App\Http\Controllers\duelistcontroller;
 use Carbon\Carbon;
 
 /*
@@ -157,5 +158,10 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         // Route::get('/search', [dailyExpenseController::class, 'search'])->name('admin.daily_expense.search');
 
     });
+
+    Route::prefix('duelist')->group(function () {
+        Route::get('/view', [duelistcontroller::class, 'duelist'])->name('admin.duelist.view');
+    });
+
 
 });

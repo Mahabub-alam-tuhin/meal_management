@@ -16,4 +16,9 @@ class UserMeals extends Model
     public function user(){
         return $this->hasOne(User::class,"id",'user_id');
     } 
+    // public function monthlyMealRates()
+    // {
+    //     return $this->hasMany(MonthlyMealRates::class, 'id', 'user_id');
+    // }
+    
 }
