@@ -52,6 +52,8 @@ Route::prefix('Booking')->group(function () {
     Route::get('/add_user_Meal_Booking', [frontEndBookingController::class, 'add_user_Meal_Booking'])->name('frontEnd.Booking.add_user_Meal_Booking');
     Route::post('/store', [frontEndBookingController::class, 'store'])->name('frontEnd.Booking.store');
     Route::get('/show', [frontEndBookingController::class, 'show'])->name('frontEnd.Booking.show');
+    Route::get('/edit/{id}', [frontEndBookingController::class, 'edit'])->name('frontEnd.Booking.edit');
+    Route::post('/update/{id}', [frontEndBookingController::class, 'update'])->name('frontEnd.Booking.update');
 
 });
 Route::prefix('user_payment')->group(function () {
@@ -161,7 +163,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
 
     Route::prefix('duelist')->group(function () {
         Route::get('/view', [duelistcontroller::class, 'duelist'])->name('admin.duelist.view');
-    });
 
+    });
 
 });

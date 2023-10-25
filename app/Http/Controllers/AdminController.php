@@ -13,7 +13,7 @@ class AdminController extends Controller
     public function index(){
         $this_month = Carbon::today();
         $userpayment=UserPayments::whereMonth('month', $this_month)->sum('amount');
-        $totalMeal=UserMeals::whereMonth('created_at', $this_month)->sum('quantity');
+        $totalMeal=UserMeals::whereMonth('date', $this_month)->sum('quantity');
         
     
         $Month_check = MonthlyMealRates::whereMonth('month', $this_month)->first();
