@@ -19,44 +19,33 @@ class UserMealSeeder extends Seeder
         UserMeals::create([
             'user_id' => '1',
             'quantity' =>'2' ,
-            'date' => '2023-06-17',
-            
+            'date' => '2023-09-17',
+            'meal_rate_id' => 1
         ]);
         UserMeals::create([
             'user_id' => '1',
             'quantity' =>'3' ,
-            'date' => '2023-07-17',
-            
+            'date' => '2023-10-17',
+            'meal_rate_id' => 2
         ]);
         UserMeals::create([
             'user_id' => '1',
             'quantity' =>'4' ,
-            'date' => '2023-08-17',
-            
+            'date' => '2023-11-17',
+            'meal_rate_id' => 3
         ]);
-        UserMeals::create([
-            'user_id' => '1',
-            'quantity' =>'5' ,
-            'date' => '2023-09-17',
-            
-        ]);
-        UserMeals::create([
-            'user_id' => '1',
-            'quantity' =>'6' ,
-            'date' => '2023-10-17',
-            
-        ]);
+
         UserMeals::create([
             'user_id' => '2',
             'quantity' =>'1' ,
             'date' => '2023-09-18',
-            
+            'meal_rate_id' => 1
         ]);
         UserMeals::create([
             'user_id' => '3',
             'quantity' =>'1' ,
             'date' => '2023-09-19',
-            
+            'meal_rate_id' => 1
         ]);
     }
 }

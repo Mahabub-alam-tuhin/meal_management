@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\MonthlyMealRates;
 use App\Models\User;
+use App\Models\UserMeals;
 use Carbon\Carbon;
 use App\Models\UserPayments;
 use Illuminate\Http\Request;
@@ -81,5 +82,43 @@ class allUserController extends Controller
         User::where('id', $id)->delete();
         return redirect()->route('admin.user.all_user');
 
+    }
+
+    public function details($id){
+        {
+            // $user_meals = $this->sinlge_due_list(auth()->user()->id);
+            // dd($user_meals);
+            $meal=UserMeals::select('date','quantity')->where('id',$id)->get();
+            $user_meals = User::where('status' , 1)->where('user_role', 'User')->where('id',$id)->select('*')->with([
+                'userMeal' => function($meal) {
+                    $meal->with(['meal_rate']);
+                }, 'userpayments'
+            ])->first();
+            
+            // dd($user_meals);
+            
+                $total_meal_payable = 0;
+                foreach ($user_meals->userMeal as $key => $meal) {
+                    $total_meal_calc = $meal->quantity * $meal->meal_rate->meal_rate;
+                    $total_meal_payable += $total_meal_calc;
+                }
+                $total_user_payment = 0;
+                foreach ($user_meals->userpayments as $key => $payment) {
+                    $total_user_payment += $payment->amount;
+                }
+    
+                $user_due = $total_user_payment - $total_meal_payable;
+    
+    
+                $user_meals->total_payment = $total_user_payment;
+                $user_meals->total_payable = $total_meal_payable;
+                $user_meals->due = $user_due;
+            
+        
+            return view('admin.user.details', [
+                'user_meals' => $user_meals,
+                'meal' => $meal
+            ]);
+        }
     }
 }

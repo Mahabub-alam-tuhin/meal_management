@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\mealBookingController;
 use App\Http\Controllers\Api\mealController;
 use App\Http\Controllers\Api\mealRateController;
 use App\Http\Controllers\Api\userInfoController;
+use App\Http\Controllers\detailsController;
 use App\Http\Controllers\frontEndBookingController;
 use App\Http\Controllers\frontEndController;
 use App\Http\Controllers\logincontroller;
@@ -66,7 +67,11 @@ Route::prefix('user_contact')->group(function () {
     Route::get('/show', [user_contactController::class, 'show'])->name('frontEnd.user_contact.show');
 
 });
+Route::prefix('user_payment_details')->group(function () {
+Route::get('/all_details/{id}', [detailsController::class, 'all_details'])->name('frontEnd.user_payment_details.details');
+Route::get('/generate-pdf/{id}', [detailsController::class, 'showPdf'])->name('generate-pdf');
 
+});
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -136,6 +141,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         Route::get('/all_user', [allUserController::class, 'all_user'])->name('admin.user.all_user');
         Route::get('/search', [allUserController::class, 'searchUsers'])->name('admin.user.search');
         Route::get('/delete/{id}', [allUserController::class, 'delete'])->name('admin.user.delete');
+        Route::get('/details/{id}', [allUserController::class, 'details'])->name('admin.user.details');
 
 
     });

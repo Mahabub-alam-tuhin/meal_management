@@ -72,6 +72,9 @@
     <script src="/backend/assets/sidebar-menu.js"></script>
     <!-- Theme js-->
     <script src="/backend/assets/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    @stack('custom-js')
 
 </body>
 
