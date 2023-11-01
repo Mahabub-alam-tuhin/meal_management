@@ -20,6 +20,8 @@ class User_managementController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'mobile' => 'required',
+            'Whatsapp' => 'required',
+            'Telegram' => 'required',
             'email' => 'required|email|unique:users',
             'department' => 'required',
             'address' => 'required',
@@ -37,6 +39,8 @@ class User_managementController extends Controller
         $saveuser->name = $request->input('name');
         $saveuser->user_role = 'User';
         $saveuser->mobile = $request->input('mobile');
+        $saveuser->Whatsapp = $request->input('Whatsapp');
+        $saveuser->Telegram = $request->input('Telegram');
         $saveuser->email = $request->input('email');
         $saveuser->department = $request->input('department');
         $saveuser->address = $request->input('address');
@@ -100,6 +104,8 @@ class User_managementController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'mobile' => 'required',
+            'Whatsapp' => 'required',
+            'Telegram' => 'required',
             'email' => 'required|email',
             'department' => 'required',
             'address' => 'required',
@@ -121,6 +127,8 @@ class User_managementController extends Controller
 
         $saveuser->name = $request->name;
         $saveuser->mobile = $request->mobile;
+        $saveuser->Whatsapp = $request->Whatsapp;
+        $saveuser->Telegram = $request->Telegram;
         $saveuser->email = $request->email;
         $saveuser->department = $request->department;
         $saveuser->address = $request->address;

@@ -6,6 +6,12 @@
         <h5 class="card-title mb-3">Edit Profile</h5>
     </div>
     <div class="card-body">
+        @if ($errors->has('current_password'))
+            <div class="alert alert-danger">
+                {{ $errors->first('current_password') }}
+            </div>
+        @endif
+
         <form method="POST" action="{{ route('frontEnd.user_profile.update', $user->id) }}">
             @csrf
             {{-- @method('PATCH') --}}
@@ -16,7 +22,7 @@
             </div>
 
             <div class="form-group">
-                <label for="email">Email:</label>
+                <label for ="email">Email:</label>
                 <input type="email" name="email" id="email" value="{{ $user->email }}" class="form-control">
             </div>
 

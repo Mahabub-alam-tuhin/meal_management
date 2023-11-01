@@ -53,7 +53,7 @@ class profileController extends Controller
 
             return redirect()->route('frontEnd.user_profile.show')->with('success', 'Profile updated successfully.');
         } else {
-            return back()->with('error', 'Current password is incorrect.');
+            return back()->withInput()->withErrors(['current_password' => 'Incorrect password'])->with('error', 'Current password is incorrect.');
         }
     }
 }

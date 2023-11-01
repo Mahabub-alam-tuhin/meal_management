@@ -19,6 +19,8 @@
                         <th>user_role</th>
                         <th>email</th>                       
                         <th>mobile</th>
+                        <th>Whatsapp Number</th>
+                        <th>Telegram Number</th>
                         <th>department</th>
                         <th>address</th>
                         <th>image</th>
@@ -36,6 +38,8 @@
                             <td>{{$user->user_role}}</td>                        
                             <td>{{$user->email}}</td> 
                             <td>{{$user->mobile}}</td>
+                            <td>{{$user->Whatsapp}}</td>
+                            <td>{{$user->Telegram}}</td>
                             <td>{{$user->department}}</td>
                             <td>{{$user->address}}</td>
                             <td>{{$user->image}}</td>

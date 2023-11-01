@@ -16,6 +16,7 @@ return new class extends Migration
             $table->text('user_id')->nullable();
             $table->integer('quantity')->nullable()->default(1);
             $table->date('date')->nullable();
+            $table->text('meal_rate_id')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

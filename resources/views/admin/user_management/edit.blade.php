@@ -33,6 +33,18 @@
                                     <input type="mobile" value="{{$saveuser->mobile}}" name="mobile" class="form-control" id="inputEmailAddress2" placeholder="mobile">
                                 </div>
                             </div>
+                            <div class="row mb-3">
+                                <label for="inputEmailAddress2" class="col-sm-3 col-form-label">Whatsapp</label>
+                                <div class="col-sm-9">
+                                    <input type="mobile" value="{{$saveuser->Whatsapp}}" name="Whatsapp" class="form-control" id="inputEmailAddress2" placeholder="mobile">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputEmailAddress2" class="col-sm-3 col-form-label">Telegram</label>
+                                <div class="col-sm-9">
+                                    <input type="mobile" value="{{$saveuser->Telegram}}" name="Telegram" class="form-control" id="inputEmailAddress2" placeholder="mobile">
+                                </div>
+                            </div>
                             
                             <div class="row mb-3">
                                 <label for="inputEmailAddress2" class="col-sm-3 col-form-label">Email</label>

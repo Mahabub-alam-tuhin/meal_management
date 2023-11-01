@@ -31,7 +31,6 @@ class user_paymentController extends Controller
         // Generate the PDF using the user_payment_pdf view
         $pdf = PDF::loadView('frontEnd.user_payment.user_payment_pdf', ['userPayments' => $userPayments])->setOptions(['defaultFont' => 'sans-serif']);
     
-        // Return the PDF as a response with a custom filename
         return $pdf->stream('user_payments.pdf');
     }
     

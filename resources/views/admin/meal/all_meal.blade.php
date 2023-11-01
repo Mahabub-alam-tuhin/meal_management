@@ -23,6 +23,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Contact Number</th>
                         <th>Quantity</th>
                         <th>Date</th>
                         <th>Action</th>
@@ -35,6 +36,7 @@
                             <td>{{ $i++ }}</td>
                             {{-- <td>{{ $meal->user->name }}</td> --}}
                             <td>{{ optional($meal->user)->name }}</td>
+                            <td>{{ optional($meal->user)->mobile }}</td>
                             <td>{{ $meal->quantity }}</td>
                             <td>{{ $meal->date }}</td>
                             <td>

@@ -12,6 +12,13 @@
                     </div>
                     <div class="card-body">
                         <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="bajar_date">Bajar Date</label>
+                            <div class="col-sm-10">
+                                <input type="date" name="bajar_date" class="form-control" 
+                                    placeholder="Bajar Date" />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="title">Title</label>
                             <div class="col-sm-10">
                                 <div class="input-group input-group-merge">
@@ -60,13 +67,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="bajar_date">Bajar Date</label>
-                            <div class="col-sm-10">
-                                <input type="date" name="bajar_date" class="form-control" 
-                                    placeholder="Bajar Date" />
-                            </div>
-                        </div>
+                       
                         {{-- <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="status">Status</label>
                             <div class="col-sm-10">

@@ -55,6 +55,7 @@ Route::prefix('Booking')->group(function () {
     Route::get('/show', [frontEndBookingController::class, 'show'])->name('frontEnd.Booking.show');
     Route::get('/edit/{id}', [frontEndBookingController::class, 'edit'])->name('frontEnd.Booking.edit');
     Route::post('/update/{id}', [frontEndBookingController::class, 'update'])->name('frontEnd.Booking.update');
+    Route::get('/search', [frontEndBookingController::class, 'search'])->name('frontEnd.Booking.search');
 
 });
 Route::prefix('user_payment')->group(function () {

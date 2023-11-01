@@ -1,12 +1,12 @@
 @extends('admin.master')
 @section('content')
    
-    <div class="row">
+    <div class="row" style='height:fixed'>
         <div class="col-xl-2 col-md-4 col-6 mb-4">
             <div class="card">
                 <div class="card-body">
                     <div class="badge p-2 bg-label-danger mb-2 rounded"><i class="ti ti-currency-dollar ti-md"></i></div>
-                    <h5 class="card-title mb-1 pt-2">AMOUNT</h5>
+                    <h5 class="card-title mb-1 pt-2">Current month User payment</h5>
                     <p class="mb-2 mt-1">{{$userpayment}}</p>
                     <div class="pt-1">
                         <span class="badge bg-label-secondary">-12.2%</span>
@@ -20,7 +20,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="badge p-2 bg-label-info mb-2 rounded"><i class="ti ti-chart-bar ti-md"></i></div>
-                    <h5 class="card-title mb-1 pt-2">QUANTITY</h5>
+                    <h5 class="card-title mb-1 pt-2">Current month total meal</h5>
                     <p class="mb-2 mt-1">{{$totalMeal}} </p>
                     <div class="pt-1">
                         <span class="badge bg-label-secondary">+25.2%</span>
@@ -31,18 +31,54 @@
 
         <!-- Total Profit -->
         <div class="col-xl-2 col-md-4 col-6 mb-4">
+            <a href="{{ route('admin.user.all_user') }}">
             <div class="card">
                 <div class="card-body">
                     <div class="badge p-2 bg-label-danger mb-2 rounded"><i class="ti ti-currency-dollar ti-md"></i></div>
-                    <h5 class="card-title mb-1 pt-2">TOTAL_DUE</h5>
-                    <p class="mb-2 mt-1">{{$total_due}} </p>
+                    <h5 class="card-title mb-1 pt-2">All User Total Due</h5>
+                    <p class="mb-2 mt-1">{{$total_due}}</p>
                     <div class="pt-1">
                         <span class="badge bg-label-secondary">-12.2%</span>
                     </div>
                 </div>
+                <!-- Add the link here with the href attribute -->
+             </a>
             </div>
         </div>
+        
         <!-- Total Sales -->     
+        <div class="col-xl-2 col-md-4 col-6 mb-4">
+            <a href="#">
+            <div class="card">
+                <div class="card-body">
+                    <div class="badge p-2 bg-label-danger mb-2 rounded"><i class="ti ti-currency-dollar ti-md"></i></div>
+                    <h5 class="card-title mb-1 pt-2">Tomorrow Total meal</h5>
+                    <p class="mb-2 mt-1">{{$tomorrowtotalMeal}}</p>
+                    <div class="pt-1">
+                        <span class="badge bg-label-secondary">-12.2%</span>
+                    </div>
+                </div>
+                <!-- Add the link here with the href attribute -->
+             </a>
+            </div>
+        </div>
+
+        {{-- this month meal rate --}}
+        <div class="col-xl-2 col-md-4 col-6 mb-4">
+            <a href="#">
+            <div class="card">
+                <div class="card-body">
+                    <div class="badge p-2 bg-label-danger mb-2 rounded"><i class="ti ti-currency-dollar ti-md"></i></div>
+                    <h5 class="card-title mb-1 pt-2">Current month meal rate</h5>
+                    <p class="mb-2 mt-1">{{$mealRate}}</p>
+                    <div class="pt-1">
+                        <span class="badge bg-label-secondary">-12.2%</span>
+                    </div>
+                </div>
+                <!-- Add the link here with the href attribute -->
+             </a>
+            </div>
+        </div>
     </div>
 
     

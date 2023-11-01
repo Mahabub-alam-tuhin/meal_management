@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('email', 100)->nullable();
             $table->string('password', 60);
             $table->string('mobile', 20)->nullable();
+            $table->string('Whatsapp', 20)->nullable();
+            $table->string('Telegram', 20)->nullable();
             $table->enum('department', ["IT", "IELTS", "SPOKEN", "EMPLOYEE"]);
             $table->string('address', 100);
             $table->tinyInteger('status')->default(1);

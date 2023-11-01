@@ -7,14 +7,13 @@
     <form action="{{ route('frontEnd.Booking.store') }}" method="post">
         @csrf        
         <div class="card-body">
+            @if (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
             <div class="row">
                 <div class="col">
-                    {{-- <div class="mb-3 row">
-                        <label class="col-sm-3 col-form-label">user_id</label>
-                        <div class="col-sm-9">
-                            <input type="text" name="user_id" class="form-control" placeholder="Type your name">
-                        </div>
-                    </div> --}}
                     <div class="mb-3 row">
                         <label class="col-sm-3 col-form-label">Quantity</label>
                         <div class="col-sm-9">
@@ -24,9 +23,10 @@
                     <div class="mb-3 row">
                         <label class="col-sm-3 col-form-label">Date</label>
                         <div class="col-sm-9">
-                            <input class="form-control digits" type="date" name="date" value="2021-01-01">
+                            <input class="form-control digits" type="date" name="date" placeholder="01-nov-2023">
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>

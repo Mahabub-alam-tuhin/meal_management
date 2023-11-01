@@ -23,6 +23,8 @@ class UserSeeder extends Seeder
             'email' => 'Rakib@gmail.com',
             'password' => Hash::make('12345678'),
             'mobile' => '01874324205',
+            'Whatsapp' => '01874324205',
+            'Telegram' => '01874324205',
             'department' => 'IT',
             'address' => 'Mirpur,Dhaka',
             
@@ -35,6 +37,8 @@ class UserSeeder extends Seeder
             'email' => 'sakib@gmail.com',
             'password' => Hash::make('12345678'),
             'mobile' => '01874324201',
+            'Whatsapp' => '01874324201',
+            'Telegram' => '01874324201',
             'department' => 'IELTS',
             'address' => 'Mirpur,Dhaka',
         ]);
@@ -46,6 +50,8 @@ class UserSeeder extends Seeder
             'email' => 'Aakib@gmail.com',
             'password' => Hash::make('12345678'),
             'mobile' => '01874322546',
+            'Whatsapp' => '01874322546',
+            'Telegram' => '01874322546',
             'department' => 'Spoken',
             'address' => 'Mirpur,Dhaka',
         ]);
@@ -57,6 +63,8 @@ class UserSeeder extends Seeder
             'email' => 'test@gmail.com',
             'password' => Hash::make('12345678'),
             'mobile' => '01992799003',
+            'Whatsapp' => '01992799003',
+            'Telegram' => '01992799003',
             'department' => 'IT',
             'address' => 'Mirpur,Dhaka',
         ]);

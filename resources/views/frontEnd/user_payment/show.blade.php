@@ -35,9 +35,8 @@
                         <tr>
                             {{-- @dd($meal); --}}
                             <td>{{$i++}}</td>
-                            <td>{{$Payments->month}}</td>
-                            {{-- <td>{{$meal->user_id}}</td>                              --}}
-                            <td>{{$Payments->payment_date}}</td>                                              
+                            <td>{{ Carbon\Carbon::parse($Payments->month)->toFormattedDateString()  }}</td>
+                            <td>{{ Carbon\Carbon::parse($Payments->payment_date)->toFormattedDateString()  }}</td>
                             <td>{{$Payments->amount}}</td>                         
                         </tr>
                     @endforeach

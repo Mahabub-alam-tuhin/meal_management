@@ -39,6 +39,26 @@
                             </div>
                         </div>
                         <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="Serial">Whatsapp Number</label>
+                            <div class="col-sm-10">
+                                <div class="input-group input-group-merge">
+                                    <input type="text" name="Whatsapp" id="phone" class="form-control"
+                                        placeholder="john.doe" aria-label="john.doe"
+                                        aria-describedby="basic-default-phone" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="Serial">Telegram Number</label>
+                            <div class="col-sm-10">
+                                <div class="input-group input-group-merge">
+                                    <input type="text" name="Telegram" id="phone" class="form-control"
+                                        placeholder="john.doe" aria-label="john.doe"
+                                        aria-describedby="basic-default-phone" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="email">Email</label>
                             <div class="col-sm-10">
                                 <input type="text" name="email" class="form-control" id="email"
