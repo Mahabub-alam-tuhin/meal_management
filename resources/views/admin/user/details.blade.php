@@ -30,13 +30,14 @@
                             <tr>
                                 <td>{{ $i++ }}</td>
                                 <td>{{ $user_meals->name }}</td>
-                                <td> {{ $meal->quantity }}</td>
+                                <td>{{ optional($meal)->quantity ?? 'N/A' }}</td>
                                 <td>{{ $user_meals->total_payable }}</td>
                                 <td> {{ $user_meals->total_payment }}</td>                       
                                 <td> {{ $user_meals->due }}</td>
                                 {{-- <td> {{ $user_meals->meal_rate->meal_rate }}</td> --}}
-                                <td> {{ $meal->date }}</td>
-                               
+                                {{-- <td> {{ $meal->date }}</td> --}}
+                                <td>{{ optional($meal)->date ?? 'N/A' }}</td>
+
                                 <td>
                                     <a href="#" class="btn btn-primary">Edit</a>
                                     <a href="#" class="btn btn-danger">Delete</a>

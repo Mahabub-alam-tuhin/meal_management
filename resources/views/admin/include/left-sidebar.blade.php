@@ -182,4 +182,25 @@
                 </li>
             </ul>
         </li>
+
+        {{-- Admin Setting --}}
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Users">Setting</div>
+                <div class="badge bg-label-primary rounded-pill ms-auto">3</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.setting.add_admin') }}" class="menu-link">
+                        <div data-i18n="show user">Add Admin</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.user_payment.all_payment') }}" class="menu-link">
+                        <div data-i18n="show user">View Admin</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
 </ul>

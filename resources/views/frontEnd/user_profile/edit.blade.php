@@ -11,6 +11,11 @@
                 {{ $errors->first('current_password') }}
             </div>
         @endif
+        {{-- @if ($errors->has('success'))
+            <div class="alert alert-danger">
+                {{ $errors->first('success') }}
+            </div>
+        @endif --}}
 
         <form method="POST" action="{{ route('frontEnd.user_profile.update', $user->id) }}">
             @csrf

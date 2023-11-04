@@ -20,6 +20,7 @@ use App\Http\Controllers\user_paymentController;
 use App\Http\Controllers\paymentController;
 use App\Http\Controllers\profileController;
 use App\Http\Controllers\duelistcontroller;
+use App\Http\Controllers\settingController;
 use Carbon\Carbon;
 
 /*
@@ -170,6 +171,17 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
 
     Route::prefix('duelist')->group(function () {
         Route::get('/view', [duelistcontroller::class, 'duelist'])->name('admin.duelist.view');
+
+    });
+
+    Route::prefix('setting')->group(function () {
+        Route::get('/add_admin', [settingController::class, 'add_admin'])->name('admin.setting.add_admin');
+        Route::post('/store', [settingController::class, 'store'])->name('admin.setting.store');
+        // Route::get('/all_user_payment', [paymentController::class, 'all_user_payment'])->name('admin.user_payment.all_payment');
+        // Route::get('/find/{id}', [dailyExpenseController::class, 'find'])->name('admin.daily_expense.edit');
+        // Route::post('/update/{id}', [dailyExpenseController::class, 'update'])->name('admin.daily_expense.update');
+        // Route::get('/delete/{id}', [dailyExpenseController::class, 'delete'])->name('admin.daily_expense.delete');
+        // Route::get('/search', [dailyExpenseController::class, 'search'])->name('admin.daily_expense.search');
 
     });
 

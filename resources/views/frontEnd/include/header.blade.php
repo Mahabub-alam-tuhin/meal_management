@@ -7,7 +7,7 @@
       </a>
 
      <!-- .navbar -->
-     <div>
+     <div class="user">
      <a class="btn-book-a-table" href="{{ route('frontEnd.register.register') }}">Register</a>
       <a class="btn-book-a-table" href="{{ route('frontEnd.login.login') }}">Login</a>
      </div>

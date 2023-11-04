@@ -14,19 +14,28 @@ class mealRateController extends Controller
    
    public function store(Request $request)
    {
-       //        dd(request()->all());
+       // Validate the form data if needed
+   
        $meal = new MonthlyMealRates();
        $meal->month = $request->month;
        $meal->meal_rate = $request->meal_rate;
-       $meal->is_visible = $request->is_visible;
+   
+       if ($request->is_visible == 1) {
+           $meal->is_visible = 1;
+           $data = "Data 1";
+       } elseif ($request->is_visible == 0) {
+           $meal->is_visible = 0;
+           $data = "Data 0";
+       } 
+   
        $meal->month_start_date = $request->month_start_date;
        $meal->month_end_date = $request->month_end_date;
        $meal->save();
-       return back()->with('message', 'Info save successfully');
-
-       //        return $request;
-
+   
+       // You can return the data to a view or do whatever you want with it
+       return back()->with('message', 'Info saved successfully')->with('data', $data);
    }
+   
 
     public function all_meal_rate()
     {
