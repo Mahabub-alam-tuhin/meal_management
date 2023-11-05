@@ -21,8 +21,8 @@
                 <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
                     <form method="POST" action="{{ route('frontEnd.register.store') }}">
                         @csrf
-                        <div class="row gy-4" style="padding-left: 5px;">
-                            <div class="col-lg-4 col-md-6" value="{{ __('Name') }}">
+                        <div class="row gy-4"  style="padding-left: 5px;">
+                            <div class="col-lg-4 col-md-6 head" value="{{ __('Name') }}">
                                 <input type="text" name="name" :value="old('name')" class="form-control"
                                        id="name" placeholder="Your Name" data-rule="minlen:4"
                                        data-msg="Please enter at least 4 chars">

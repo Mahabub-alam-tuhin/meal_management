@@ -33,4 +33,12 @@ class settingController extends Controller
         $setting->save();
         return back()->with('message', 'Info saved successfully')->with('data', $data);
     }
+
+    public function all_user()
+    {
+        return view('admin.setting.view', [
+            'setting' => Settings::all()
+        ]);
+    }
+
 }

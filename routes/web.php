@@ -177,6 +177,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::prefix('setting')->group(function () {
         Route::get('/add_admin', [settingController::class, 'add_admin'])->name('admin.setting.add_admin');
         Route::post('/store', [settingController::class, 'store'])->name('admin.setting.store');
+        Route::get('/view', [settingController::class, 'view'])->name('admin.setting.view');
+
         // Route::get('/all_user_payment', [paymentController::class, 'all_user_payment'])->name('admin.user_payment.all_payment');
         // Route::get('/find/{id}', [dailyExpenseController::class, 'find'])->name('admin.daily_expense.edit');
         // Route::post('/update/{id}', [dailyExpenseController::class, 'update'])->name('admin.daily_expense.update');

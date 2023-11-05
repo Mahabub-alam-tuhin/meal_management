@@ -26,7 +26,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="row gy-4" style="padding-left: 5px;">
-                            <div class="col-lg-12 col-md-6" value="{{ __('mobile') }}">
+                            <div class="col-lg-12 col-md-6 root" value="{{ __('mobile') }}">
                                 <input type="text" name="mobile" :value="old('mobile')" class="form-control"
                                        id="mobile" placeholder="Your mobile" data-rule="minlen:4"
                                        data-msg="Please enter at least 4 chars">
