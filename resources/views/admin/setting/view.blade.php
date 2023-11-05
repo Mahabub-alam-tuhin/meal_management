@@ -15,10 +15,14 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>name</th>
-                        <th>user_id</th>
-                        <th>Queantity</th> 
-                        <th>date</th>                     
+                        <th>shut_down_app</th>
+                        <th>shut_down_reason</th>
+                        <th>contact_name</th> 
+                        <th>contact_number</th> 
+                        <th>meat_set_last_time</th> 
+                        <th>meal_set_alert_time</th> 
+                        <th>alert_text_for_all</th> 
+                        <th>today_meal_coocking_end_time</th>                     
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -38,8 +42,8 @@
                             <td>{{$settings->today_meal_coocking_end_time}}</td> 
 
                             <td>
-                                <a href="#" class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
+                                <a href="{{ route('admin.setting.edit',$settings->id) }}" class="btn btn-primary">Edit</a>
+                                <a href="{{ route('admin.setting.delete',$settings->id) }}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     @endforeach

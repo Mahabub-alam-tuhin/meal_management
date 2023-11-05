@@ -11,7 +11,7 @@
      <a class="btn-book-a-table register" href="{{ route('frontEnd.register.register') }}">Register</a>
       <a class="btn-book-a-table log" href="{{ route('frontEnd.login.login') }}">Login</a>
      </div>
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list cross"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
     </div>

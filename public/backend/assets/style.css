@@ -112,12 +112,15 @@ p {
   letter-spacing: 0.7px;
 }
 /* styles.css */
-@media (max-width: 320px) {
+@media (max-width: 767px) {
   .custom-style {
       margin: 15px;
   }
   .user{
     display: none;
+  }
+  .change{
+    margin-top: 15px;
   }
 }
 

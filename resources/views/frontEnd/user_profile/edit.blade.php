@@ -20,7 +20,7 @@
         <form method="POST" action="{{ route('frontEnd.user_profile.update', $user->id) }}">
             @csrf
             {{-- @method('PATCH') --}}
-
+            <p>You can't update your informaton without given current Password</p>
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" name="name" id="name" value="{{ $user->name }}" class="form-control">
@@ -56,7 +56,7 @@
                 <input type="password" name="new_password" id="new_password" class="form-control">
             </div>
 
-            <div class="form-group">
+            <div class="form-group change">
                 <button type="submit" class="btn btn-primary">Save Changes</button>
             </div>
         </form>

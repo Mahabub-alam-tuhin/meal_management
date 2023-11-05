@@ -197,7 +197,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ route('admin.user_payment.all_payment') }}" class="menu-link">
+                    <a href="{{ route('admin.setting.view') }}" class="menu-link">
                         <div data-i18n="show user">View Admin</div>
                     </a>
                 </li>

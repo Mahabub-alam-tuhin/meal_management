@@ -109,18 +109,18 @@ section {
     margin-top: 70px;
   }
 }
-@media (max-width: 320px) {
+@media (min-width: 320px) {
   .head {
     margin-top: 35px;
   }
 }
-@media (max-width: 320px) {
+@media (min-width: 320px) {
   .root {
     margin-top: 35px;
   }
 }
 
-@media (max-width: 320px) {
+@media (min-width: 320px) {
   .user{
     display: flex;
     gap: 5px;
@@ -293,7 +293,7 @@ section {
   margin: 0;
   font-family: var(--font-secondary);
 }
-@media (max-width: 320px) {
+@media (max-width: 767px) {
   .header .logo h1{
     font-size: 18px;
     font-weight: 700;
@@ -489,6 +489,20 @@ section {
   .mobile-nav-show,
   .mobile-nav-hide {
     display: none;
+  }
+}
+@media (max-width: 767px) {
+
+ 
+  .cross {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+
+ 
+  .log_button {
+    margin-top: 15px;
   }
 }
 
@@ -1218,6 +1232,15 @@ section {
   min-height: 500px;
   background-size: cover;
   background-position: center;
+}
+
+@media (max-width: 767px) {
+  .book-a-table .reservation-img {
+    /* min-height: 0px; */
+    background-size: cover;
+    background-position: center;
+    display: none;
+  }
 }
 
 .book-a-table .reservation-form-bg {

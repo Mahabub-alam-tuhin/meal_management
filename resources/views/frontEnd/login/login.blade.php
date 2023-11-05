@@ -56,7 +56,7 @@
                                 </a>
                             @endif
             
-                            <x-button class="ml-4" style="background-color: red; margin-left: 60px; border-radius: 50px;">
+                            <x-button class="ml-4 log_button" style="background-color: red; margin-left: 60px; border-radius: 50px;">
                                 {{ __('Login') }}
                             </x-button>
                         </div>
