@@ -81,6 +81,12 @@ class frontEndBookingController extends Controller
         return redirect()->route('frontEnd.Booking.show');
     }
 
+    public function delete($id)
+    {
+        UserMeals::where('id', $id)->delete();
+        return redirect()->route('frontEnd.Booking.show');
+    }
+
     public function search(Request $request)
     {
         $id = auth()->user()->id;

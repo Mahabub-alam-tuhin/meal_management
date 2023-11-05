@@ -45,19 +45,21 @@
                         <td>{{ Carbon\Carbon::parse($meal->date)->toFormattedDateString()  }}</td>
                         <td>
                             @php
-                                $currentTime = now();
-                                $mealCutoffTime = now()
-                                    ->setHour(18)
-                                    ->setMinute(0)
-                                    ->setSecond(0);
-                            @endphp
-                
-                            @if ($currentTime->lte($mealCutoffTime))
-                                <a href="{{ route('frontEnd.Booking.edit', $meal->id) }}" class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                            @else
-                                <span class="text-danger">Edit & Delete Disabled</span>
-                            @endif
+                            $currentTime = now();
+                            $mealCutoffTime = now()
+                                ->setHour(18)
+                                ->setMinute(0)
+                                ->setSecond(0);
+                            $mealDate = Carbon\Carbon::parse($meal->date);
+                        @endphp
+                        
+                        @if ($currentTime->lte($mealCutoffTime) && $mealDate->isSameDay($currentTime))
+                            <a href="{{ route('frontEnd.Booking.edit', $meal->id) }}" class="btn btn-primary">Edit</a>
+                            <a href="{{ route('frontEnd.Booking.delete', $meal->id) }}" class="btn btn-danger">Delete</a>
+                        @else
+                            <span class="text-danger">Edit & Delete Disabled</span>
+                        @endif
+                        
                         </td>
                     </tr>
                 @endforeach
