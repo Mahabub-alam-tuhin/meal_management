@@ -84,41 +84,44 @@ class allUserController extends Controller
 
     }
 
-    public function details($id){
-        {
-            // $user_meals = $this->sinlge_due_list(auth()->user()->id);
-            // dd($user_meals);
-            $meal=UserMeals::select('date','quantity')->where('id',$id)->get();
-            $user_meals = User::where('status' , 1)->where('user_role', 'User')->where('id',$id)->select('*')->with([
-                'userMeal' => function($meal) {
+    public function details($id)
+    {
+        $meal = UserMeals::select('date', 'quantity')->where('id', $id)->first();
+        $user_meals = User::where('status', 1)
+            ->where('user_role', 'User')
+            ->where('id', $id)
+            ->select('*')
+            ->with([
+                'userMeal' => function ($meal) {
                     $meal->with(['meal_rate']);
-                }, 'userpayments'
-            ])->first();
-            
-            // dd($user_meals);
-            
-                $total_meal_payable = 0;
-                foreach ($user_meals->userMeal as $key => $meal) {
-                    $total_meal_calc = $meal->quantity * $meal->meal_rate->meal_rate;
-                    $total_meal_payable += $total_meal_calc;
-                }
-                $total_user_payment = 0;
-                foreach ($user_meals->userpayments as $key => $payment) {
-                    $total_user_payment += $payment->amount;
-                }
+                },
+                'userpayments'
+            ])
+            ->first();
     
-                $user_due = $total_user_payment - $total_meal_payable;
-    
-    
-                $user_meals->total_payment = $total_user_payment;
-                $user_meals->total_payable = $total_meal_payable;
-                $user_meals->due = $user_due;
-            
-        
-            return view('admin.user.details', [
-                'user_meals' => $user_meals,
-                'meal' => $meal
-            ]);
+        $total_meal_payable = 0;
+        foreach ($user_meals->userMeal as $key => $meal) {
+            if ($meal->meal_rate) { // Check if meal_rate exists
+                $total_meal_calc = $meal->quantity * $meal->meal_rate->meal_rate;
+                $total_meal_payable += $total_meal_calc;
+            }
         }
+    
+        $total_user_payment = 0;
+        foreach ($user_meals->userpayments as $key => $payment) {
+            $total_user_payment += $payment->amount;
+        }
+    
+        $user_due = $total_user_payment - $total_meal_payable;
+    
+        $user_meals->total_payment = $total_user_payment;
+        $user_meals->total_payable = $total_meal_payable;
+        $user_meals->due = $user_due;
+    
+        return view('admin.user.details', [
+            'user_meals' => $user_meals,
+            'meal' => $meal
+        ]);
     }
+    
 }

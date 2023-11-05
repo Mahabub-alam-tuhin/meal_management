@@ -29,7 +29,8 @@
                     @foreach($Payments as $Payment)
                         <tr>
                             <td>{{$i++}}</td>
-                            <td>{{$Payment->user->name}}</td> 
+                            {{-- {{ optional($post->category)->name }} --}}
+                            <td>{{optional($Payment->user)->name}}</td> 
                             <td>{{$Payment->user_id}}</td> 
                             <td>{{$Payment->month}}</td>                        
                             <td>{{$Payment->payment_date}}</td> 
