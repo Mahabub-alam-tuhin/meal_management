@@ -1,4 +1,5 @@
 @extends('admin.master')
+
 @section('content')
     <div id="calendar"></div>
     <div class="card">
@@ -40,8 +41,12 @@
                             <td>{{ $meal->quantity }}</td>
                             <td>{{ $meal->date }}</td>
                             <td>
-                                <a href="{{ route('admin.meal.edit', $meal->id) }}" class="btn btn-primary">Edit</a>
-                                <a href="{{ route('admin.meal.delete', $meal->id) }}" class="btn btn-danger">Delete</a>
+                                @if ($meal->date >= \Carbon\Carbon::now())
+                                    <a href="{{ route('admin.meal.edit', $meal->id) }}" class="btn btn-primary">Edit</a>
+                                    <a href="{{ route('admin.meal.delete', $meal->id) }}" class="btn btn-danger">Delete</a>
+                                    @else
+                                    <p>Edit delete button disable</p>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

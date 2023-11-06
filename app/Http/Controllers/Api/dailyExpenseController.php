@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\daily_expense;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class dailyExpenseController extends Controller
 {
@@ -14,6 +16,21 @@ class dailyExpenseController extends Controller
     public function store(Request $request)
     {
         //        dd(request()->all());
+        $validator = Validator::make($request->all(),[
+            'title' => 'required|string|max:255',
+            'quantity' => 'required|numeric',
+            'unit' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'total' => 'required|numeric',
+            'bajar_date' => 'required|date',
+        ]);
+
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $expense = new daily_expense();
         $expense->title = $request->title;
         $expense->quantity = $request->quantity;

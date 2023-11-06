@@ -11,15 +11,16 @@
                             <div class="row mb-3">
                                 <label for="inputEnterYourName" class="col-sm-3 col-form-label">User Name</label>
                                 <div class="col-sm-9">
-                                    <select class="form-select select2 meal_user" name="name"
-                                        aria-label="Default select example">
-                                        <option selected>Open this select menu</option>
+                                    <select class="form-select select2 meal_user" name="name" aria-label="Default select example">
+                                        <option value="" selected>Select a user</option>
                                         @foreach (App\Models\User::get() as $user)
-                                            <option value="{{ $user->name }}">{{ $user->name }}</option>
+                                            <option value="{{ $user->id }}" @if($user->id == $meal->user_id) selected @endif>{{ $user->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
+                            
+                         
                             {{-- <div class="row mb-3">
                                 <label for="inputEnterYourName" class="col-sm-3 col-form-label">users_id</label>
                                 <div class="col-sm-9">

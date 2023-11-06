@@ -1,4 +1,5 @@
 @extends('admin.master')
+
 @section('content')
     <div class="row">
         <!-- Basic Layout -->
@@ -14,20 +15,13 @@
                             <label class="col-sm-2 col-form-label" for="role">User Name</label>
                             <div class="col-sm-10">
                                 <select class="form-select select2 meal_user" name="user_id" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
+                                    <option selected>Open this User menu</option>
                                     @foreach (App\Models\User::get() as $user)
                                         <option value="{{ $user->id }}">{{ $user->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-                        {{-- <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="name">users_id</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="users_id" class="form-control" id="name"
-                                    placeholder="please enter the name" />
-                            </div>
-                        </div> --}}
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="Serial">quantity</label>
                             <div class="col-sm-10">
@@ -36,6 +30,9 @@
                                         placeholder="number" aria-label="john.doe"
                                         aria-describedby="basic-default-phone" />
                                 </div>
+                                @error('quantity')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -43,6 +40,9 @@
                             <div class="col-sm-10">
                                 <input type="date" name="date" class="form-control" id="email"
                                     placeholder="email" />
+                                @error('date')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="row justify-content-end">
@@ -52,6 +52,7 @@
                         </div>
                     </div>
                 </div>
+            </form>
         </div>
-        </form>
-    @endsection
+    </div>
+@endsection

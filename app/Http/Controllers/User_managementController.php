@@ -27,12 +27,23 @@ class User_managementController extends Controller
             'address' => 'required',
             'password' => 'required|min:8|confirmed', // Add "confirmed" rule for password
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', 
+        ], [
+            'password.confirmed' => 'Password and Confirm Password do not match',
         ]);
     
+        // $validator->setAttributeNames([
+        //     'name' => 'Name',
+        //     'mobile' => 'Mobile',
+        //     'Whatsapp' => 'Whatsapp',
+        //     'Telegram' => 'Telegram',
+        //     'email' => 'Email',
+        //     'department' => 'Department',
+        //     'address' => 'Address',
+        //     'password' => 'Password',
+        // ]);
+    
         if ($validator->fails()) {
-            return back()
-                ->withErrors($validator)
-                ->withInput();
+            return redirect()->back()->withErrors($validator)->withInput();
         }
     
         $saveuser = new User();

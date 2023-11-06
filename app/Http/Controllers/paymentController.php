@@ -12,14 +12,23 @@ class paymentController extends Controller
     }
     public function store(Request $request)
     {
+        $request->validate([
+            'user_id' => 'required',     
+            'month' => 'required',       
+            'payment_date' => 'required', 
+            'amount' => 'required|numeric' 
+        ]);
+    
         $Payments = new UserPayments();
         $Payments->user_id = $request->user_id;
         $Payments->month = $request->month;
         $Payments->payment_date = $request->payment_date;
         $Payments->amount = $request->amount;
         $Payments->save();
-        return back()->with('message', 'Info save successfully');
+    
+        return back()->with('message', 'Info saved successfully');
     }
+    
     public function all_user_payment()
     {
         return view('admin.user_payment.all_payment', [

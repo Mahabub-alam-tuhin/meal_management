@@ -293,7 +293,7 @@ section {
   margin: 0;
   font-family: var(--font-secondary);
 }
-@media (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .header .logo h1{
     font-size: 18px;
     font-weight: 700;

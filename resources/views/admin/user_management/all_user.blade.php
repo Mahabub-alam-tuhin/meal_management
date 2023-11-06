@@ -15,16 +15,16 @@
                     <thead>
                     <tr>
                         <th>ID</th>
+                        <th>image</th>
                         <th>name</th>
+                        <th>mobile</th>
+                        <th>department</th>
                         <th>user_role</th>
                         <th>email</th>                       
-                        <th>mobile</th>
                         <th>Whatsapp Number</th>
                         <th>Telegram Number</th>
-                        <th>department</th>
                         <th>address</th>
-                        <th>image</th>
-                        <th>password</th>
+                        {{-- <th>password</th> --}}
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -34,16 +34,17 @@
                     @foreach($saveusers as $user)
                         <tr>
                             <td>{{$i++}}</td>
+                            <td>{{$user->image}}</td>
                             <td>{{$user->name}}</td> 
-                            <td>{{$user->user_role}}</td>                        
-                            <td>{{$user->email}}</td> 
                             <td>{{$user->mobile}}</td>
+                            <td>{{$user->department}}</td>
+                            <td>{{$user->user_role}}</td>                        
+                            <td>{{$user->email}}</td>                             
                             <td>{{$user->Whatsapp}}</td>
                             <td>{{$user->Telegram}}</td>
-                            <td>{{$user->department}}</td>
                             <td>{{$user->address}}</td>
-                            <td>{{$user->image}}</td>
-                            <td>{{$user->password}}</td>
+                         
+                            {{-- <td>{{$user->password}}</td> --}}
                             
 
 
@@ -57,7 +58,7 @@
                     </thead>
                     </tbody>
                 </table>
-                <div class="row mx-2"><div class="col-sm-12 col-md-6"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 0 to 0 of 0 entries</div></div><div class="col-sm-12 col-md-6"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="DataTables_Table_0_previous"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="previous" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item next disabled" id="DataTables_Table_0_next"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="next" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div>
+                {{-- <div class="row mx-2"><div class="col-sm-12 col-md-6"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 0 to 0 of 0 entries</div></div><div class="col-sm-12 col-md-6"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="DataTables_Table_0_previous"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="previous" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item next disabled" id="DataTables_Table_0_next"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="next" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div> --}}
         </div>
     </div>
 @endsection

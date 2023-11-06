@@ -5,41 +5,56 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\MonthlyMealRates;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class mealRateController extends Controller
 {
-   public function add_meal_rate(){
-    return view('admin.meal_rate.add_meal_rate');
-   }
-   
-   public function store(Request $request)
-   {
-       // Validate the form data if needed
-   
-       $meal = new MonthlyMealRates();
-       $meal->month = $request->month;
-       $meal->meal_rate = $request->meal_rate;
-   
-       if ($request->is_visible == 1) {
-           $meal->is_visible = 1;
-           $data = "Data 1";
-       } elseif ($request->is_visible == 0) {
-           $meal->is_visible = 0;
-           $data = "Data 0";
-       } 
-   
-       $meal->month_start_date = $request->month_start_date;
-       $meal->month_end_date = $request->month_end_date;
-       $meal->save();
-   
-       // You can return the data to a view or do whatever you want with it
-       return back()->with('message', 'Info saved successfully')->with('data', $data);
-   }
-   
+    public function add_meal_rate()
+    {
+        return view('admin.meal_rate.add_meal_rate');
+    }
+
+    public function store(Request $request)
+    {
+        // Validate the form data if needed
+        $validator = Validator::make($request->all(), [
+            'month' => 'required',
+            'meal_rate' => 'required|numeric',
+            'is_visible' => 'required|in:0,1',
+            'month_start_date' => 'required|date',
+            'month_end_date' => 'required|date|after:month_start_date',
+        ]);
+
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $meal = new MonthlyMealRates();
+        $meal->month = $request->month;
+        $meal->meal_rate = $request->meal_rate;
+
+        if ($request->is_visible == 1) {
+            $meal->is_visible = 1;
+            $data = "Data 1";
+        } elseif ($request->is_visible == 0) {
+            $meal->is_visible = 0;
+            $data = "Data 0";
+        }
+
+        $meal->month_start_date = $request->month_start_date;
+        $meal->month_end_date = $request->month_end_date;
+        $meal->save();
+
+        // You can return the data to a view or do whatever you want with it
+        return back()->with('message', 'Info saved successfully')->with('data', $data);
+    }
+
 
     public function all_meal_rate()
     {
-        return view ('admin.meal_rate.all_meal_rate', [
+        return view('admin.meal_rate.all_meal_rate', [
             'mealRate' => MonthlyMealRates::all()
         ]);
     }
@@ -65,7 +80,7 @@ class mealRateController extends Controller
     public function update(Request $request, $id)
     {
         $mealRate = MonthlyMealRates::find($id);
-        $mealRate->	month = $request->	month;
+        $mealRate->month = $request->month;
         $mealRate->meal_rate = $request->meal_rate;
         $mealRate->is_visible = $request->is_visible;
         $mealRate->month_start_date = $request->month_start_date;

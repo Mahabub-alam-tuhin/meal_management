@@ -22,6 +22,9 @@
                                 <label class="form-check-label" for="visible_no">No</label>
                             </div>
                         </div>
+                        @error('shut_down_app')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="Serial">shut_down_reason</label>
@@ -30,8 +33,11 @@
                                 <input type="text" name="shut_down_reason" id="phone" class="form-control"
                                     placeholder="meal_rate" aria-label="john.doe"
                                     aria-describedby="basic-default-phone" />
-                            </div>
+                            </div>   
                         </div>
+                        @error('shut_down_reason')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="email">contact_name</label>
@@ -39,6 +45,9 @@
                             <input type="text" name="contact_name" class="form-control" id="email"
                                 placeholder="month_start_date" />
                         </div>
+                        @error('contact_name')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="email">contact_number</label>
@@ -46,6 +55,9 @@
                             <input type="number" name="contact_number" class="form-control" id="email"
                                 placeholder="month_end_date" />
                         </div>
+                        @error('contact_number')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="email">meat_set_last_time</label>
@@ -53,6 +65,9 @@
                             <input type="time" name="meat_set_last_time" class="form-control" id="email"
                                 placeholder="month_end_date" />
                         </div>
+                        @error('meat_set_last_time')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="email">meal_set_alert_time</label>
@@ -60,6 +75,9 @@
                             <input type="time" name="meal_set_alert_time" class="form-control" id="email"
                                 placeholder="month_end_date" />
                         </div>
+                        @error('meal_set_alert_time')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="email">alert_text_for_all</label>
@@ -67,6 +85,9 @@
                             <input type="text" name="alert_text_for_all" class="form-control" id="email"
                                 placeholder="month_end_date" />
                         </div>
+                        @error('alert_text_for_all')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="email">today_meal_coocking_end_time	</label>
@@ -74,6 +95,9 @@
                             <input type="time" name="today_meal_coocking_end_time" class="form-control" id="email"
                                 placeholder="month_end_date" />
                         </div>
+                        @error('today_meal_coocking_end_time')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="row justify-content-end">
                         <div class="col-sm-10">

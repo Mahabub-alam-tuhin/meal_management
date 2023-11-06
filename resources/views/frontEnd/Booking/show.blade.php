@@ -17,6 +17,11 @@
                 </div>
                 <button type="submit" class="btn btn-primary" style="margin-top: 10px">Search</button>
             </form>
+            {{-- @if (session('error_today'))
+                <div class="alert alert-danger">
+                    {{ session('error_today') }}
+                </div>
+            @endif --}}
             <div class="d-flex justify-content-between align-items-center row pb-2 gap-3 gap-md-0">
                 <div class="col-md-4 user_role"></div>
                 <div class="col-md-4 user_plan"></div>
@@ -29,7 +34,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
+                        {{-- <th>Name</th> --}}
                         <th>Quantity</th>
                         <th>Date</th>
                         <th>Action</th>
@@ -40,7 +45,7 @@
                     @foreach(array_reverse($meals->all()) as $meal)
                     <tr>
                         <td>{{ $i }}</td>
-                        <td>{{ $meal->user->name }}</td>
+                        {{-- <td>{{ $meal->user->name }}</td> --}}
                         <td>{{ $meal->quantity }}</td>
                         <td>{{ Carbon\Carbon::parse($meal->date)->toFormattedDateString()  }}</td>
                         <td>

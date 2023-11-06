@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\UserMeals;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
 
 class mealController extends Controller
 {
@@ -32,18 +33,27 @@ class mealController extends Controller
 
     public function store(Request $request)
     {
-        //        dd(request()->all());
+        $validator = Validator::make($request->all(), [
+            'user_id' => 'required|exists:users,id', // Assuming user_id must exist in the 'users' table
+            'quantity' => 'required|integer|min:1', // Assuming quantity should be an integer greater than or equal to 1
+            'date' => 'required|date', // Assuming date should be a valid date format
+        ]);
+    
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+    
         $meal = new UserMeals();
-        // $meal->name = $request->name;
         $meal->user_id = $request->user_id;
         $meal->quantity = $request->quantity;
         $meal->date = $request->date;
         $meal->save();
-        return back()->with('message', 'Info save successfully');
-
-        //        return $request;
-
+    
+        return back()->with('message', 'Info saved successfully');
     }
+    
     // public function search(Request $request)
     // {
     //     $selectedMonth = $request->input('selectedMonth');
@@ -97,7 +107,7 @@ class mealController extends Controller
     public function update(Request $request, $id)
     {
         $meal = UserMeals::find($id);
-        $meal->name = $request->name;
+        $meal->user_id = $request->name;
         // $meal->users_id = $request->users_id;
         $meal->quantity = $request->quantity;
         $meal->date = $request->date;

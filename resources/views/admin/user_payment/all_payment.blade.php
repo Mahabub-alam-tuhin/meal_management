@@ -20,7 +20,7 @@
                         <th>month</th>
                         <th>payment_date</th>                       
                         <th>amount</th>
-                        <th>Action</th>
+                        {{-- <th>Action</th> --}}
                     </tr>
                     </thead>
                     <thead>
@@ -35,10 +35,10 @@
                             <td>{{$Payment->month}}</td>                        
                             <td>{{$Payment->payment_date}}</td> 
                             <td>{{$Payment->amount}}</td>
-                            <td>
+                            {{-- <td>
                                 <a href="{{route('admin.user_management.edit',$Payment->id)}}" class="btn btn-primary">Edit</a>
                                 <a href="{{route('admin.user_management.delete',$Payment->id)}}" class="btn btn-danger">Delete</a>
-                            </td>
+                            </td> --}}
                         </tr>
                     @endforeach
                     </thead>
