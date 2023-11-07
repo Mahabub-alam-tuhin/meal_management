@@ -1,9 +1,18 @@
 @extends('frontEnd.user-master')
 
 @section('content')
+
     <div class="card">
         <div class="card-header border-bottom">
-            <h5 class="card-title mb-3">Meal List</h5>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="card-title mb-3">Meal List</h5>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="{{ route('frontEnd.Booking.show') }}"
+                        class="btn btn-danger" style="margin-top: 10px" >Reset</a>
+
+            </div>
             @if (session('error'))
                 <div class="alert alert-danger">
                     {{ session('error') }}
@@ -16,7 +25,9 @@
                     <input type="month" id="search-month" name="search_month" class="form-control">
                 </div>
                 <button type="submit" class="btn btn-primary" style="margin-top: 10px">Search</button>
+
             </form>
+
             {{-- @if (session('error_today'))
                 <div class="alert alert-danger">
                     {{ session('error_today') }}
@@ -42,13 +53,13 @@
                 </thead>
                 <tbody>
                     @php $i=1 @endphp
-                    @foreach(array_reverse($meals->all()) as $meal)
-                    <tr>
-                        <td>{{ $i }}</td>
-                        {{-- <td>{{ $meal->user->name }}</td> --}}
-                        <td>{{ $meal->quantity }}</td>
-                        <td>{{ Carbon\Carbon::parse($meal->date)->toFormattedDateString()  }}</td>
-                        {{-- <td>
+                    @foreach (array_reverse($meals->all()) as $meal)
+                        <tr>
+                            <td>{{ $i }}</td>
+                            {{-- <td>{{ $meal->user->name }}</td> --}}
+                            <td>{{ $meal->quantity }}</td>
+                            <td>{{ Carbon\Carbon::parse($meal->date)->toFormattedDateString() }}</td>
+                            {{-- <td>
                             @php
                             $currentTime = now();
                             $mealCutoffTime = now()
@@ -66,17 +77,18 @@
                         @endif
                         
                         </td> --}}
-                        <td>
-                            @if ($meal->date >= \Carbon\Carbon::now())
-                                <a href="{{ route('frontEnd.Booking.edit', $meal->id) }}" class="btn btn-primary">Edit</a>
-                                <a href="{{ route('frontEnd.Booking.delete', $meal->id) }}" class="btn btn-danger">Delete</a>
+                            <td>
+                                @if ($meal->date >= \Carbon\Carbon::now())
+                                    <a href="{{ route('frontEnd.Booking.edit', $meal->id) }}"
+                                        class="btn btn-primary">Edit</a>
+                                    <a href="{{ route('frontEnd.Booking.delete', $meal->id) }}"
+                                        class="btn btn-danger">Delete</a>
                                 @else
-                                <p>Edit delete button disable</p>
-                            @endif
-                        </td>
-                    </tr>
-                @endforeach
-                
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
+
                 </tbody>
             </table>
         </div>

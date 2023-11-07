@@ -18,7 +18,7 @@
                     </div>
                 @endif
                 @if (session('success'))
-                    <div class="alert alert-danger">
+                    <div class="alert alert-success">
                         {{ session('success') }}
                     </div>
                 @endif
@@ -29,12 +29,18 @@
                             <div class="col-sm-9">
                                 <input type="number" name="quantity" class="form-control digits" placeholder="Number">
                             </div>
+                            @error('quantity')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3 row">
                             <label class="col-sm-3 col-form-label">Date</label>
                             <div class="col-sm-9">
                                 <input class="form-control digits" type="date" name="date" placeholder="01-nov-2023">
                             </div>
+                            @error('date')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                     </div>

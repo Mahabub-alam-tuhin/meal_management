@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\UserMeals;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
 
 class frontEndBookingController extends Controller
 {
@@ -14,6 +15,16 @@ class frontEndBookingController extends Controller
     }
     public function store(Request $request)
     {
+
+        $validator = Validator::make($request->all(), [
+            'quantity' => 'required',
+            'date' => 'required',
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        
         $user_id = auth()->user()->id;
         $selected_date = Carbon::parse($request->date)->format('Y-m-d'); 
         $current_date = Carbon::now()->format('Y-m-d'); 
@@ -26,6 +37,7 @@ class frontEndBookingController extends Controller
 
         $currentTime = Carbon::now();
         $meal_set_last_time = Carbon::today()->setHour(18)->setMinute(0)->setSecond(0);
+
 
         if ($currentTime->lte($meal_set_last_time)) {
             $meals = new UserMeals();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class registerController extends Controller
@@ -18,7 +19,7 @@ class registerController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
             'address' => 'required|string|max:255',
-            'mobile' => 'required|digits:10',
+            'mobile' => 'required|min:10',
             'password' => 'required|string|min:8',
         ];
     
@@ -47,8 +48,9 @@ class registerController extends Controller
         $user->user_role = 'User';
         $user->password = Hash::make($validatedData['password']);
         $user->save();
-    
-        return back()->with('message', 'Info saved successfully');
+        Auth::login($user);
+        return redirect()->route('/')->with('message', 'Info saved successfully');
+        // return back()->with('message', 'Info saved successfully');
     }
     
 }
