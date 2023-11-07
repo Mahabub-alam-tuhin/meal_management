@@ -120,11 +120,20 @@ section {
   }
 }
 
-@media (min-width: 320px) {
+@media (min-width: 320px) and (max-width:768px) {
   .user{
     display: flex;
-    gap: 5px;
+    font-size: 8px;
+    margin-right: -12px;
   }
+}
+.logout-button {
+  transition: background-color 0.3s; /* Add a smooth transition for the background color change */
+}
+
+.logout-button:hover {
+  background: rgba(206, 18, 18, 0.8);
+  box-shadow: 0 8px 28px rgba(206, 18, 18, 0.45);/* Change the background color on hover */
 }
 
 
@@ -295,13 +304,16 @@ section {
 }
 @media (min-width: 320px) and (max-width: 767px) {
   .header .logo h1{
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 700;
     color: #000;
     margin: 0;
     font-family: var(--font-secondary);
 
   }
+  /* .food_img{
+    display: none;
+  } */
 }
 
 
@@ -315,15 +327,15 @@ section {
   color: #fff;
   background: var(--color-primary);
   padding: 8px 20px;
-  margin-left: 30px;
+  /* margin-left: 30px; */
   border-radius: 50px;
   transition: 0.3s;
 }
 
-@media (max-width: 320px) {
+@media (min-width: 320px) and (max-width:767px){
   .header .btn-book-a-table,
 .header .btn-book-a-table:focus {
-  font-size: 14px;
+  font-size: 12px;
   color: #fff;
   background: var(--color-primary);
   padding: 8px 20px;

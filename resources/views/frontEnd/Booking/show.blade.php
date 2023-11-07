@@ -48,7 +48,7 @@
                         {{-- <td>{{ $meal->user->name }}</td> --}}
                         <td>{{ $meal->quantity }}</td>
                         <td>{{ Carbon\Carbon::parse($meal->date)->toFormattedDateString()  }}</td>
-                        <td>
+                        {{-- <td>
                             @php
                             $currentTime = now();
                             $mealCutoffTime = now()
@@ -65,6 +65,14 @@
                             <span class="text-danger">Edit & Delete Disabled</span>
                         @endif
                         
+                        </td> --}}
+                        <td>
+                            @if ($meal->date >= \Carbon\Carbon::now())
+                                <a href="{{ route('frontEnd.Booking.edit', $meal->id) }}" class="btn btn-primary">Edit</a>
+                                <a href="{{ route('frontEnd.Booking.delete', $meal->id) }}" class="btn btn-danger">Delete</a>
+                                @else
+                                <p>Edit delete button disable</p>
+                            @endif
                         </td>
                     </tr>
                 @endforeach

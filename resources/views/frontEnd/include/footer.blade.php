@@ -7,8 +7,8 @@
           <div>
             <h4>Address</h4>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022 - US<br>
+              Mirpur-06<br>
+              Bangladesh, Dhaka-1216<br>
             </p>
           </div>
 

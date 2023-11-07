@@ -17,6 +17,11 @@
                         {{ session('error_today') }}
                     </div>
                 @endif
+                @if (session('success'))
+                    <div class="alert alert-danger">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <div class="row">
                     <div class="col">
                         <div class="mb-3 row">
