@@ -31,12 +31,18 @@
                                        id="mobile" placeholder="Your mobile" data-rule="minlen:4"
                                        data-msg="Please enter at least 4 chars">
                                 <div class="validate"></div>
+                                @error('mobile')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col-lg-12 col-md-6" value="{{ __('password') }}">
                                 <input type="password" name="password" :value="old('password')" class="form-control"
                                        id="password" placeholder="Your password" data-rule="minlen:4"
                                        data-msg="Please enter at least 4 chars">
                                 <div class="validate"></div>
+                                @error('password')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             {{-- <div class="col-lg-4 col-md-6" value="{{ __('user_role') }}">
                               <select class="form-select" name="user_role" value="{{ __('user_role') }}" aria-label="Default select example">
@@ -56,7 +62,7 @@
                                 </a>
                             @endif
             
-                            <x-button class="ml-4 log_button" style="background-color: red; margin-left: 60px; border-radius: 50px;">
+                            <x-button class="ml-4 log_button" style="background: var(--color-primary); margin-left: 60px; border-radius: 50px;">
                                 {{ __('Login') }}
                             </x-button>
                         </div>
