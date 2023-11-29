@@ -40,8 +40,9 @@ Route::prefix('register')->group(function(){
     Route::get('/register',[registerController::class,'register'])->name('frontEnd.register.register');
     Route::post('/store', [registerController::class, 'store'])->name('frontEnd.register.store');
 });
-Route::prefix ('login')->group(function(){
-    Route::get('/login', [logincontroller::class, 'login'])->name('frontEnd.login.login');
+
+Route::prefix ('')->group(function(){
+    Route::get('login', [logincontroller::class, 'login'])->name('login');
 });
 
 Route::prefix('user_profile')->group(function () {
@@ -91,7 +92,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     // Route::get('/dashboard', function () {
     //     return view('dashboard');
     // })->name('dashboard');->middleware('isadmin')
-    // 
+    //
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard.home')->middleware('isadmin');
     Route::get('/add_user', [User_managementController::class, 'add_user'])->name('admin.user_management.add_user');
     Route::post('/store', [User_managementController::class, 'store'])->name('admin.user_management.store');
@@ -113,7 +114,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
 
     Route::prefix('meal_register')->group(function () {
         Route::get('/Add_user_meal', [mealRegistercontroller::class, 'Add_user_meal'])->name('admin.meal_register.Add_user_meal');
-        Route::post('/store', [mealRegistercontroller::class, 'store'])->name('admin.meal_register.store');    
+        Route::post('/store', [mealRegistercontroller::class, 'store'])->name('admin.meal_register.store');
         Route::get('/all_user_meal', [mealRegistercontroller::class, 'all_user_meal'])->name('admin.meal_register.all_user_meal');
         Route::get('//delete/{id}', [mealRegistercontroller::class, 'delete'])->name('admin.meal_register.delete');
 
@@ -139,7 +140,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
 
     });
 
-    
+
     Route::prefix('user')->group(function () {
         Route::get('/all_user', [allUserController::class, 'all_user'])->name('admin.user.all_user');
         Route::get('/search', [allUserController::class, 'searchUsers'])->name('admin.user.search');
@@ -149,16 +150,16 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
 
     });
 
-    
+
     Route::prefix('info')->group(function () {
         Route::get('/all_info', [userInfoController::class, 'all_info'])->name('admin.info.all_info');
     });
 
     Route::prefix('meal_booking')->group(function () {
         Route::get('/all_meal', [mealBookingController::class, 'all_meal'])->name('admin.meal_booking.all_meal');
-        Route::post('/store', [mealBookingController::class, 'store']);    
+        Route::post('/store', [mealBookingController::class, 'store']);
     });
-    
+
     Route::prefix('user_payment')->group(function () {
         Route::get('/add_payment', [paymentController::class, 'add_payment'])->name('admin.user_payment.add_payment');
         Route::post('/store', [paymentController::class, 'store'])->name('admin.user_payment.store');

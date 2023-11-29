@@ -20,14 +20,14 @@ class frontEndBookingController extends Controller
             'quantity' => 'required',
             'date' => 'required',
         ]);
-    
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-        
+
         $user_id = auth()->user()->id;
-        $selected_date = Carbon::parse($request->date)->format('Y-m-d'); 
-        $current_date = Carbon::now()->format('Y-m-d'); 
+        $selected_date = Carbon::parse($request->date)->format('Y-m-d');
+        $current_date = Carbon::now()->format('Y-m-d');
         // @dd($current_date);
         if ($selected_date === $current_date) {
             return redirect()->back()->with('error_today', 'Cannot book a meal for today.');
@@ -43,7 +43,7 @@ class frontEndBookingController extends Controller
             $meals = new UserMeals();
             $meals->user_id = $user_id;
             $meals->quantity = $request->quantity;
-            $meals->date = $selected_date; 
+            $meals->date = $selected_date;
             $meals->save();
             return redirect()->back()->with('success', 'Meal booked successfully.');
         } else {
@@ -58,7 +58,7 @@ class frontEndBookingController extends Controller
         // dd(auth()->user());
         $id = auth()->user()->id;
         $meals = UserMeals::where('user_id', $id)->with('user')
-            // ->orderBy('date', 'desc') 
+            // ->orderBy('date', 'desc')
             ->get();
         return view('frontEnd.Booking.show', compact('meals'));
     }
