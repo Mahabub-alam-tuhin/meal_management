@@ -19,14 +19,16 @@
 
                 <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
                     @if (session('status'))
-                    <div class="mb-4 font-medium text-sm text-green-600">
-                        {{ session('status') }}
-                    </div>
+                        <div class="mb-4 font-medium text-sm text-green-600">
+                            {{ session('status') }}
+                        </div>
                     @endif
+
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="row gy-4" style="padding-left: 5px;">
                             <div class="col-lg-12 col-md-6 root" value="{{ __('mobile') }}">
+                                <label class="mb-3">Enter your mobile number</label>
                                 <input type="text" name="mobile" :value="old('mobile')" class="form-control"
                                        id="mobile" placeholder="Your mobile" data-rule="minlen:4"
                                        data-msg="Please enter at least 4 chars">
@@ -36,9 +38,10 @@
                                 @enderror
                             </div>
                             <div class="col-lg-12 col-md-6" value="{{ __('password') }}">
+                                <label class="mb-3">Enter your password</label>
                                 <input type="password" name="password" :value="old('password')" class="form-control"
                                        id="password" placeholder="Your password" data-rule="minlen:4"
-                                       data-msg="Please enter at least 4 chars">
+                                       data-msg="Please enter at least 4 chars" />
                                 <div class="validate"></div>
                                 @error('password')
                                     <div class="alert alert-danger">{{ $message }}</div>
@@ -56,15 +59,15 @@
                         </div>
 
                         <div class="flex items-center justify-end mt-4">
-                            @if (Route::has('password.request'))
+                            {{-- @if (Route::has('password.request'))
                                 <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" style="margin-left:10px" href="{{ route('password.request') }}">
                                     {{ __('Forgot your password?') }}
                                 </a>
-                            @endif
-            
-                            <x-button class="ml-4 log_button" style="background: var(--color-primary); margin-left: 60px; border-radius: 50px;">
+                            @endif --}}
+
+                            <button class="btn btn-danger rounded-pill px-5" >
                                 {{ __('Login') }}
-                            </x-button>
+                            </button>
                         </div>
                     </form>
                 </div>

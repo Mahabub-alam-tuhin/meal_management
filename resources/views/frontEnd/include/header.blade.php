@@ -18,7 +18,7 @@
         </form>
       @else
         <a class="btn-book-a-table register" href="{{ route('frontEnd.register.register') }}">Register</a>
-        <a class="btn-book-a-table log"  href="{{ route('frontEnd.login.login') }}">Login</a>
+        <a class="btn-book-a-table log"  href="{{ route('login') }}">Login</a>
       @endif
     </div>
 
